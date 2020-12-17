@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+body {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+.main-container {
+  display: flex;
+  flex-flow: wrap;
+  border: 0.05px solid rgb(211, 197, 197);
+  margin: auto 20px;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.profile-card {
+  border: 0.1px solid rgb(199, 185, 185);
+  border-radius: 30px;
+  padding: 20px;
+  min-width: 200px;
+  margin: 20px;
+}
+
+.profile-card:hover {
+  box-shadow: 2px 2px rgb(202, 183, 183);
+}
+
+.profilepicture {
+  border-radius: 50%;
+  max-height: 150px;
+}
+
+.userName {
+  margin: 0;
+  margin-top: 20px;
+}
