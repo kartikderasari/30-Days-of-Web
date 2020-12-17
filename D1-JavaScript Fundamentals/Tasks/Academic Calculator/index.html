@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Calculator</title>
+
+    <style>
+        .tableHeader,
+        .tableRow,
+        .tableData {
+            border: solid 1px black;
+        }
+
+        .hide {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body style="text-align: center;">
+
+    <h1>Academic Calculator</h1>
+
+    <form id="studentDataForm" action="" style="margin: 0 auto; max-width: 300px;">
+        <table>
+            <tr>
+                <td><label for="">Name </label></td>
+                <td><input type="text" id="name" value="" placeholder="Enter your name"></td>
+            </tr>
+            <tr>
+                <td><label for="">Age </label></td>
+                <td><input type="number" id="age" value="" placeholder="Enter your age"></td>
+            </tr>
+            <tr>
+                <td><label for="">Physics </label></td>
+                <td><input type="number" id="physics" value="" placeholder="Enter your marks"></td>
+            </tr>
+            <tr>
+                <td><label for="">Chemistry</label></td>
+                <td><input type="number" id="chemistry" value="" placeholder="Enter your marks"></td>
+            </tr>
+            <tr>
+                <td><label for="">Maths</label></td>
+                <td><input type="number" id="maths" value="" placeholder="Enter your marks"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button id="addStudentButton">Add student</button></td>
+            </tr>
+        </table>
+
+    </form>
+
+    <br>
+    <div id="studentData">
+
+
+        <h2>Student Data</h2>
+        <table id="studentDataTable" class="studentDataTable"
+            style="margin: 0 auto; max-width: 800px; border: 1px solid black;">
+            <thead>
+                <tr class="tableRow">
+                    <th class="tableHeader">Name</th>
+                    <th class="tableHeader">Age</th>
+                    <th class="tableHeader">Physics</th>
+                    <th class="tableHeader">Chemistry</th>
+                    <th class="tableHeader">Maths</th>
+                    <th class="tableHeader">Total Marks</th>
+                    <th class="tableHeader">Percentage %</th>
+                </tr>
+            </thead>
+            <tbody id="studentTableBody">
+            </tbody>
+        </table>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
