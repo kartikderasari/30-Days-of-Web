@@ -11,7 +11,30 @@
 <body>
     <h1>User Directory</h1>
 
+    <form action="" id="newUserForm">
+        <h3>Add New User</h3>
+        <table>
+            <tr>
+                <td>Name: </td>
+                <td><input type="text" name="name" id="name" placeholder="Enter Name"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" name="email" id="email" placeholder="Enter Mail Address"></td>
+            </tr>
+            <tr>
+                <td>Image URL:</td>
+                <td><input type="text" name="url" id="url" placeholder="Enter Image URL"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button id="addUserButton">Add User</button></td>
+            </tr>
+        </table>
+    </form>
+
     <div class="main-container" id="main-container">
+
     </div>
     <script src="index.js"></script>
 </body>
