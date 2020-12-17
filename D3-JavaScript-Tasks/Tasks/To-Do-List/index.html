@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <h1>Tasks to do!</h1>
+        <table>
+            <tr>
+                <td class="tasktext">
+                    <input type="text" name="" id="taskInputField">
+                </td>
+                <!-- <td style="text-align: left;">
+                    <input type="radio" id="ongoingradio" name="status" value="ongoing">
+                    <label>Ongoing</label> <br>
+                    <input type="radio" id="doneradio" name="status" value="done">
+                    <label>Done</label> <br>
+                    <input type="radio" id="abortradio" name="status" value="abort">
+                    <label>Abort</label> <br>
+                </td> -->
+                <td>
+                    <button class="btn" id="addTaskButton">Add Task</button>
+                </td>
+            </tr>
+
+            <!-- <tr>
+                <td class="tasktext">
+                    Some Text
+                </td>
+                <td>
+                    <button class="btn ongoingButton" id="ongoing">Ongoing</button>
+                    <button class="btn doneButton" id="done">Done</button>
+                    <button class="btn abortButton" id="abort">Abort</button>
+                </td>
+            </tr> -->
+            <tbody id="taskTableData">
+
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>

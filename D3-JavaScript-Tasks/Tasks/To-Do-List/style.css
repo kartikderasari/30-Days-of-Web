@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+body {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+table {
+  max-width: 90%;
+  margin: auto;
+  border: 1px solid rgb(211, 193, 193);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.tasktext {
+  min-width: 300px;
+  text-align: left;
+}
+
+input {
+  border-radius: 5px;
+  padding: 5px;
+  border-color: rgb(223, 219, 219);
+  box-shadow: 3px 3px whitesmoke;
+}
+
+.btn {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  border-color: whitesmoke;
+  box-shadow: 2px 2px whitesmoke;
+}
+
+.btn:hover {
+  box-shadow: 2px 2px rgb(167, 145, 145);
+}
+
+.ongoingButton {
+  background-color: aqua;
+}
+
+.doneButton {
+  background-color: lightgreen;
+}
+
+.abortButton {
+  background-color: rgb(181, 181, 89);
+}
+
+.btn:active,
+.btn:focus {
+  border-width: 0px;
+  border-color: white;
+}
