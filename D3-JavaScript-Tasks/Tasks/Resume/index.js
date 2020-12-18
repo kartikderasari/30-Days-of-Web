@@ -2,7 +2,7 @@ const userData = {
 
     name: 'Kartik Derasari',
 
-    address: '9B, Raj Colony,<br> Near Naranpura Railway Crossing,<br> Naranpura, Ahmedabad - 380013',
+    address: '9B, Raj Colony,<br> Near Naranpura Railway Crossing,<br> Naranpura, Ahmedabad, India - 380013',
 
     dob: 'Sep 5 1999',
 
@@ -42,7 +42,7 @@ const userData = {
         {
             year: '2015 - 2017',
             degree: 'HSC - GHSEB',
-            institute: 'Navkar Public School,',
+            institute: 'Navkar Public School',
             cgpa: '8.95',
         },
         {
@@ -97,13 +97,13 @@ showData();
 
 function showData() {
 
-    document.getElementById('name').innerHTML = userData.name;
+    document.getElementById('name').innerHTML = `<h1>${userData.name}</h1>`;
     document.getElementById('address').innerHTML = userData.address;
-    document.getElementById('dob').innerHTML += userData.dob;
+    //document.getElementById('dob').innerHTML += userData.dob;
 
     for (let i = 0; i < userData.socialLinks.length; i++) {
         document.getElementById('socialLinks').innerHTML += `
-            <tr><td><a href="${userData.socialLinks[i].url}">${userData.socialLinks[i].urlName}</a></td></tr>`;
+            <p style="margin: 0;"><a href="${userData.socialLinks[i].url}">${userData.socialLinks[i].url}</a></p>`;
     }
 
     for (let i = 0; i < userData.education.length; i++) {
@@ -134,3 +134,7 @@ function showData() {
     }
 
 }
+
+document.getElementById('printResumeButton').addEventListener('click', function (e) {
+    window.print();
+});

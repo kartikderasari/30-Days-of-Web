@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
-body {
+#printable {
   font-family: "Open Sans", sans-serif;
-  margin: 20px;
+  margin: 20px auto;
   padding: 20px;
   border: 0.5px solid rgb(221, 197, 197);
   box-shadow: 3px 3px rgb(179, 157, 157);
+  width: 70%;
 }
 
 .header-container {
@@ -29,11 +30,20 @@ body {
 
 .subcontent table {
   width: 100%;
-  text-align: center;
-  border: 1px solid rgb(179, 157, 157);
 }
-.subcontent tr,
-.subcontent th,
-.subcontent td {
-  border: 1px solid rgb(179, 157, 157);
+th {
+  text-align: left;
+}
+
+@media print {
+  #printable {
+    display: block;
+    width: 95%;
+    margin: 0;
+    border: 0;
+    box-shadow: 0 0 #fff;
+  }
+  #nonPrintable {
+    display: none;
+  }
 }

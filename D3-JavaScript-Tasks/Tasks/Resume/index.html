@@ -9,57 +9,56 @@
 </head>
 
 <body>
-    <div class="header-container">
-        <div>
-            <p id="address">
-            </p>
-            <p id="dob">DOB: </p>
-        </div>
-        <div>
-            <h1 class="name" id="name"></h1>
-        </div>
-        <div>
-            <table id="socialLinks" style="text-align: right;">
-
+    <div id="nonPrintable" style="text-align: center;">
+        <button id="printResumeButton">Print</button>
+    </div>
+    <div id="printable">
+        <div class="header-container">
+            <table style="width: 100%;">
+                <tr style="width: 100%;">
+                    <td id="address" style="width: 30%;"></td>
+                    <td id="name" style="width: 40%; text-align: center;"></td>
+                    <td id="socialLinks" style="width: 30%; text-align: right;"></td>
+                </tr>
             </table>
         </div>
-    </div>
 
-    <div class="main-container">
-        <div class="sub-container">
-            <h3 class="subheader">Education</h3>
-            <hr>
-            <div class="subcontent">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Year</th>
-                            <th>Degree</th>
-                            <th>Institute</th>
-                            <th>CGPA/Percentage</th>
-                        </tr>
-                    </thead>
-                    <tbody id="educationTableBody">
+        <div class="main-container">
+            <div class="sub-container">
+                <h3 class="subheader">Education</h3>
+                <hr>
+                <div class="subcontent">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Degree</th>
+                                <th>Institute</th>
+                                <th>CGPA/Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody id="educationTableBody">
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-        <div class="sub-container">
-            <h3 class="subheader">Volunteering Experience</h3>
-            <hr>
-            <div id="expContent"></div>
-        </div>
-        <div class="sub-container">
-            <h3 class="subheader">Accomplishments & Recognition</h3>
-            <hr>
-            <div id="accomContent">
+            <div class="sub-container">
+                <h3 class="subheader">Volunteering Experience</h3>
+                <hr>
+                <div id="expContent"></div>
             </div>
-        </div>
-        <div class="sub-container">
-            <h3 class="subheader">Certifications & Scholarships</h3>
-            <hr>
-            <div id="certContent">
+            <div class="sub-container">
+                <h3 class="subheader">Accomplishments & Recognition</h3>
+                <hr>
+                <div id="accomContent">
+                </div>
+            </div>
+            <div class="sub-container">
+                <h3 class="subheader">Certifications & Scholarships</h3>
+                <hr>
+                <div id="certContent">
+                </div>
             </div>
         </div>
 
