@@ -1,4 +1,4 @@
-var xhttp = new XMLHttpRequest();
+/* var xhttp = new XMLHttpRequest();
 xhttp.open("GET", "data.json", true);
 xhttp.onload = function () {
     if (this.status == 200) {
@@ -6,7 +6,11 @@ xhttp.onload = function () {
         showData(userData);
     }
 }
-xhttp.send();
+xhttp.send();*/
+
+fetch('data.json')
+    .then((res) => res.json())
+    .then((data) => { showData(data) })
 
 function showData(userData) {
 

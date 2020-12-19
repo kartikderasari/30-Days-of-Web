@@ -2,7 +2,7 @@ const userData = {
 
     name: 'Kartik Derasari',
 
-    address: '9B, Raj Colony,<br> Near Naranpura Railway Crossing,<br> Naranpura, Ahmedabad, India - 380013',
+    address: '6B, Sachin Colony,<br> Dummy Area,<br> Ahmedabad, India - 380017',
 
     dob: 'Sep 5 1999',
 
