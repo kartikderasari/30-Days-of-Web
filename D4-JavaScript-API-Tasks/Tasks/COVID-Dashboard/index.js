@@ -20,14 +20,15 @@ function showGlobalData(data) {
 function showCountryData(data) {
 
     for (let i = 1; i < data.length; i++) {
-        document.getElementById('subcountrycontainer').innerHTML += `
-    <div class="countryContainer">
-            <h4>${data[i].country}</h4>
-            <p> Cases: ${data[i].cases} | Today: ${data[i].todayCases} | Active: ${data[i].active} <br>
-        Deaths: ${data[i].deaths} | Today: ${data[i].todayDeaths} <br>
-            Recovered: ${data[i].recovered} | Critical: ${data[i].critical}
-            </p>
-    </div>`;
+        document.getElementById('subcountrycontainer').innerHTML +=
+            `<tr>
+            <td>${data[i].country}</td>
+            <td>${data[i].cases}</td>
+            <td>${data[i].todayCases}</td>
+            <td>${data[i].deaths}</td>
+            <td>${data[i].todayDeaths}</td>
+            <td>${data[i].recovered}</td>
+    </tr>`;
     }
 }
 

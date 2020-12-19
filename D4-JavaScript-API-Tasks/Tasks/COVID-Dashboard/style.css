@@ -25,6 +25,14 @@ contentheading {
 }
 
 table {
-  width: 100%;
+  width: 80%;
   text-align: center;
+  border: 1px solid black;
+  margin: 30px auto;
+}
+
+tr,
+td,
+th {
+  border: 1px solid black;
 }
