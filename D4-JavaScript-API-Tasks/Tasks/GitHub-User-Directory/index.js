@@ -1,8 +1,6 @@
 fetch('https://api.github.com/users')
     .then((res) => res.json())
     .then((data) => showData(data))
-
-
 function showData(userData) {
     document.getElementById('main-container').innerHTML = '';
     userData.forEach(function (user) {
