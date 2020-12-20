@@ -1,0 +1,18 @@
+body {
+  background-color: #eae5e5;
+}
+
+.navbar {
+  background-color: #eae5e5;
+}
+.navbar-container,
+.profile-container {
+  margin-top: 2rem;
+  width: auto;
+}
+.profile-picture {
+  max-width: 300px;
+}
+.button-picture {
+  width: 100px;
+}
