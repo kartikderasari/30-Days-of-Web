@@ -1,5 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Noticia+Text&display=swap");
+
 body {
+  font-family: "Noticia Text", serif;
   background-color: #eae5e5;
+  color: rgb(99, 83, 83);
 }
 
 .navbar {
@@ -15,4 +19,38 @@ body {
 }
 .button-picture {
   width: 100px;
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.color-container {
+  border: 1px solid red;
+  height: 100px;
+}
+
+.badge {
+  height: 8rem;
+  width: 8rem;
+  margin: 20px 10px;
+}
+
+.badge-inner-text {
+  position: relative;
+  top: 3.5rem;
+  color: white;
+}
+.badge-inner-text:hover {
+  opacity: 0.3;
+}
+
+.material-icons {
+  padding: 10px;
+  font-size: 40px;
 }
