@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Template</title>
+  <title id="title"></title>
   <script src="https://kit.fontawesome.com/c94427133a.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -14,59 +14,56 @@
 
 <body>
   <div class="container-fluid">
-    <div>
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid navbar-container">
-          <a class="navbar-brand" href="#">
-            <h1>Name</h1>
-            <h4>Designation</h4>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active text-uppercase" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-uppercase" href="#">Resume</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-uppercase" href="#">Projects</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-uppercase" href="#">Contact</a>
-              </li>
-            </ul>
-          </div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid navbar-container">
+        <a class="navbar-brand" href="#">
+          <h1 id="name"></h1>
+          <h4 id="designation"></h4>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active text-uppercase" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-uppercase" href="#">Resume</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-uppercase" href="#">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-uppercase" href="#">Contact</a>
+            </li>
+          </ul>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
+
 
     <div>
       <div class="container-fluid container-70">
         <div class="row">
-          <div class="col col-lg-4 col-md-12 col-sm-12">
-            <img class="profile-picture rounded-circle" src="https://picsum.photos/300" alt="Profile Picture">
+          <div class="col-lg-4 col-md-12 col-sm-12">
+            <img class="profile-picture rounded-circle" id="profileImage" src="" alt="Profile Picture">
           </div>
-          <div class="col col-lg-8 col-md-12 col-sm-12">
+          <div class="col-lg-8 col-md-12 col-sm-12">
             <h1>Hello,</h1>
             <h3>a bit about me:</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, beatae quis commodi,
-              dolorem eos impedit in aliquid dignissimos quia ad exercitationem ex aspernatur possimus
-              quisquam hic architecto deleniti tempore aliquam?
+            <p id="bio">
             </p>
             <span class="badge rounded-pill button-badge" style="background-color: rgb(231, 106, 61);"> <a
-                class="badge-inner-text" href="">MY RESUME</a>
+                class="badge-inner-text" href="#">MY RESUME</a>
             </span>
             <span class="badge rounded-pill button-badge" style="background-color: rgb(202, 202, 89);"> <a
-                class="badge-inner-text" href="">MY
+                class="badge-inner-text" href="#">MY
                 PROJECTS</a>
             </span>
             <span class="badge rounded-pill button-badge" style="background-color: rgb(110, 110, 241);"> <a
-                class="badge-inner-text" href="">CONTACT
+                class="badge-inner-text" href="#">CONTACT
                 ME</a>
             </span>
           </div>
@@ -77,21 +74,14 @@
     <div>
       <div class="container-fluid container-70">
         <div class="row">
-          <div class="col col-lg-8">
-            <h1>Hello,</h1>
-            <h3>a bit about me:</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, beatae quis commodi,
-              dolorem eos impedit in aliquid dignissimos quia ad exercitationem ex aspernatur possimus
-              quisquam hic architecto deleniti tempore aliquam?Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis, beatae quis commodi,
-              dolorem eos impedit in aliquid dignissimos quia ad exercitationem ex aspernatur possimus
-              quisquam hic architecto deleniti tempore aliquam?
+          <div class="col-lg-8 col-md-12 col-sm-12">
+            <h3>What do I do?</h3>
+            <p id="whatIDo">
             </p>
-            <button class="btn btn-primary">Hire Me</button>
-            <button class="btn btn-secondary">Learn More</button>
+            <a class="btn btn-primary" id="resumeURL" href="">Hire Me</a>
           </div>
-          <div class="col col-lg-4">
-            <img class="profile-picture rounded-circle" src="https://picsum.photos/300" alt="Profile Picture">
+          <div class="col-lg-4 col-md-12 col-sm-12">
+            <img class="profile-picture rounded-circle" id="secondaryImage" src="" alt="Profile Picture">
           </div>
         </div>
       </div>
@@ -101,57 +91,14 @@
       <div class="container-fluid container-70">
         <div class="row">
           <h2>Something that I work upon!</h2>
-          <div class="col col-lg-6 ">
-
-            <div class="row content-container">
-              <div class="col col-lg-3">
-                <span class="badge bg-secondary skill-badges">Secondary</span>
-              </div>
-              <div class="col col-lg-3">
-                <span class="badge bg-secondary skill-badges">Secondary</span>
-              </div>
-              <div class="col col-lg-3">
-                <span class="badge bg-secondary skill-badges">Secondary</span>
-              </div>
-              <div class="col col-lg-3">
-                <span class="badge bg-secondary skill-badges">Secondary</span>
-              </div>
-
-            </div>
-            <div class="row">
-              <div class="col col-lg-3">
-                <span class="badge bg-secondary skill-badges">Secondary</span>
-              </div>
-              <div class="col col-lg-3">
-                <span class="badge bg-secondary skill-badges">Secondary</span>
-              </div>
-              <div class="col col-lg-3">
-                <span class="badge bg-secondary skill-badges">Secondary</span>
-              </div>
-              <div class="col col-lg-3">
-                <span class="badge bg-secondary skill-badges">Secondary</span>
-              </div>
-
+          <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="row" id="skillrow" style="text-align: center;">
             </div>
           </div>
-
-          <div class="col col-lg-6">
-            <div class="row content-container">
-              <div class="col col-3">
-                <img src="https://picsum.photos/100" alt="">
-              </div>
-              <div class="col col-3">
-                <img src="https://picsum.photos/100" alt="">
-              </div>
-              <div class="col col-3">
-                <img src="https://picsum.photos/100" alt="">
-              </div>
-              <div class="col col-3">
-                <img src="https://picsum.photos/100" alt="">
-              </div>
+          <div class="col-lg-6  col-md-12 col-sm-12">
+            <div class="row content-container" id="techimage">
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -159,63 +106,12 @@
     <div>
       <div class="container-fluid container-70">
         <div class="row">
-          <div class="col col-lg-12">
+          <div class="col-lg-12 col-md-12 col-sm-12">
             <h3>Communities!</h3>
-            <div class="row content-container">
-              <div class="col col-lg-1">
-                <img class="rounded-circle" src="https://picsum.photos/80" alt="" srcset="">
-              </div>
-              <div class="col col-lg-2">
-                <h5>Community Name</h5>
-              </div>
-              <div class="col col-lg-1">
-                <img class="rounded-circle" src="https://picsum.photos/80" alt="" srcset="">
-              </div>
-              <div class="col col-lg-2">
-                <h5>Community Name</h5>
-              </div>
-              <div class="col col-lg-1">
-                <img class="rounded-circle" src="https://picsum.photos/80" alt="" srcset="">
-              </div>
-              <div class="col col-lg-2">
-                <h5>Community Name</h5>
-              </div>
-              <div class="col col-lg-1">
-                <img class="rounded-circle" src="https://picsum.photos/80" alt="" srcset="">
-              </div>
-              <div class="col col-lg-2">
-                <h5>Community Name</h5>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col col-lg-1">
-                <img class="rounded-circle" src="https://picsum.photos/80" alt="" srcset="">
-              </div>
-              <div class="col col-lg-2">
-                <h5>Community Name</h5>
-              </div>
-              <div class="col col-lg-1">
-                <img class="rounded-circle" src="https://picsum.photos/80" alt="" srcset="">
-              </div>
-              <div class="col col-lg-2">
-                <h5>Community Name</h5>
-              </div>
-              <div class="col col-lg-1">
-                <img class="rounded-circle" src="https://picsum.photos/80" alt="" srcset="">
-              </div>
-              <div class="col col-lg-2">
-                <h5>Community Name</h5>
-              </div>
-              <div class="col col-lg-1">
-                <img class="rounded-circle" src="https://picsum.photos/80" alt="" srcset="">
-              </div>
-              <div class="col col-lg-2">
-                <h5>Community Name</h5>
-              </div>
+            <div class="row" id="commrow">
             </div>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -225,11 +121,11 @@
           Connect with me!
         </h3>
         <div>
-          <i href="#" class="social-icon fab fa-facebook"></i>
-          <i href="#" class="social-icon fas fa-envelope"></i>
-          <i href="#" class="social-icon fab fa-instagram-square"></i>
-          <i href="#" class="social-icon fab fa-linkedin"></i>
-          <i href="#" class="social-icon fab fa-twitter"></i>
+          <a href="" id="mail" class="social-icon fas fa-envelope"></a>
+          <a href="" id="facebook" class="social-icon fab fa-facebook"></a>
+          <a href="" id="instagram" class="social-icon fab fa-instagram-square"></a>
+          <a href="" id="linkedin" class="social-icon fab fa-linkedin"></a>
+          <a href="" id="twitter" class="social-icon fab fa-twitter"></a>
         </div>
       </div>
     </div>

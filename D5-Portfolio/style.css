@@ -11,17 +11,18 @@ body {
 }
 
 .navbar-container {
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
 }
 
 .container-70 {
-  width: 70%;
+  width: 80%;
   margin: 50px auto;
 }
 
 .profile-picture {
   max-width: 300px;
+  box-shadow: 2px 5px rgb(181, 158, 158);
 }
 .button-picture {
   width: 100px;
@@ -65,6 +66,7 @@ a:hover {
   font-size: 1.5rem;
   margin: 10px;
   padding: 10px 5px;
+  color: inherit;
 }
 
 .skill-badges {
@@ -74,4 +76,49 @@ a:hover {
 
 .content-container {
   padding: 20px 0;
+}
+
+.comm-name {
+  margin-top: 1.5rem;
+}
+
+.community-image {
+  max-width: 80px;
+}
+
+@media screen and (max-width: 992px) {
+  .navbar-container {
+    width: 100%;
+  }
+
+  .container-70 {
+    width: 100%;
+  }
+
+  .profile-picture {
+    max-width: 200px;
+    padding: 30px 0;
+  }
+  body {
+    text-align: center;
+  }
+}
+}
+
+@media screen and (max-width: 600px) {
+  .navbar-container {
+    width: 100%;
+  }
+
+  .container-70 {
+    width: 100%;
+  }
+
+  .profile-picture {
+    max-width: 200px;
+    padding: 30px 0;
+  }
+  body {
+    text-align: center;
+  }
 }

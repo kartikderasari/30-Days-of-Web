@@ -1,0 +1,50 @@
+{
+    "name": "FirstName LastName",
+    "designation": "Web Developer",
+    "bio": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, beatae quis commodi, dolorem eos impedit in aliquid dignissimos quia ad exercitationem ex aspernatur possimus quisquam hic architecto deleniti te",
+    "whatIDo": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, beatae quis commodi, dolorem eos impedit in aliquid dignissimos quia ad exercitationem ex aspernatur possimus quisquam hic architecto deleniti tempore aliquam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, beatae quis commodi",
+    "resumeURL": "#",
+    "profileImageURL": "https://picsum.photos/300",
+    "secondaryImageURL": "https://picsum.photos/300",
+    "skills": [
+        "One",
+        "Two",
+        "Three",
+        "Four"
+    ],
+    "communities": [
+        {
+            "commName": "One",
+            "commImageURL": "https://picsum.photos/80",
+            "commURL": "https://picsum.photos/80"
+        },
+        {
+            "commName": "Two",
+            "commImageURL": "https://picsum.photos/80",
+            "commURL": "https://picsum.photos/80"
+        },
+        {
+            "commName": "Three",
+            "commImageURL": "https://picsum.photos/80",
+            "commURL": "https://picsum.photos/80"
+        },
+        {
+            "commName": "Four",
+            "commImageURL": "https://picsum.photos/80",
+            "commURL": "https://picsum.photos/80"
+        }
+
+    ],
+    "techImageURL": [
+        "https://picsum.photos/100",
+        "https://picsum.photos/100",
+        "https://picsum.photos/100",
+        "https://picsum.photos/100"
+    ],
+    "email": "test@gmail.com",
+    "facebook": "https://facebook.com/",
+    "instagram": "https://instagram.com/",
+    "linkedin": "https://linkedin.com/",
+    "twitter": "https://twitter.com/"
+}
+
