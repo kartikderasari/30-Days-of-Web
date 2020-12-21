@@ -30,13 +30,13 @@
               <a class="nav-link active text-uppercase" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-uppercase" href="#">Resume</a>
+              <a class="nav-link text-uppercase" href="#about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-uppercase" href="#">Projects</a>
+              <a class="nav-link text-uppercase" href="#resume">Resume</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-uppercase" href="#">Contact</a>
+              <a class="nav-link text-uppercase" href="#contact">Contact</a>
             </li>
           </ul>
         </div>
@@ -44,51 +44,47 @@
     </nav>
 
 
-    <div>
-      <div class="container-fluid container-70">
-        <div class="row">
-          <div class="col-lg-4 col-md-12 col-sm-12">
-            <img class="profile-picture rounded-circle" id="profileImage" src="" alt="Profile Picture">
-          </div>
-          <div class="col-lg-8 col-md-12 col-sm-12">
-            <h1>Hello,</h1>
-            <h3>a bit about me:</h3>
-            <p id="bio">
-            </p>
-            <span class="badge rounded-pill button-badge" style="background-color: rgb(231, 106, 61);"> <a
-                class="badge-inner-text" href="#">MY RESUME</a>
-            </span>
-            <span class="badge rounded-pill button-badge" style="background-color: rgb(202, 202, 89);"> <a
-                class="badge-inner-text" href="#">MY
-                PROJECTS</a>
-            </span>
-            <span class="badge rounded-pill button-badge" style="background-color: rgb(110, 110, 241);"> <a
-                class="badge-inner-text" href="#">CONTACT
-                ME</a>
-            </span>
-          </div>
+    <div id="about" class="container-fluid container-70">
+      <div class="row">
+        <div class="col-lg-4 col-md-12 col-sm-12">
+          <img class="profile-picture rounded-circle" id="profileImage" src="" alt="Profile Picture">
+        </div>
+        <div class="col-lg-8 col-md-12 col-sm-12">
+          <h1>Hello,</h1>
+          <h3>a bit about me:</h3>
+          <p id="bio">
+          </p>
+          <span class="badge rounded-pill button-badge" style="background-color: rgb(231, 106, 61);"> <a
+              class="badge-inner-text" href="#resume">MY RESUME</a>
+          </span>
+          <span class="badge rounded-pill button-badge" style="background-color: rgb(202, 202, 89);"> <a
+              class="badge-inner-text" href="#resume">MY
+              PROJECTS</a>
+          </span>
+          <span class="badge rounded-pill button-badge" style="background-color: rgb(110, 110, 241);"> <a
+              class="badge-inner-text" href="#contact">CONTACT
+              ME</a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div id="resume" class="container-fluid container-70">
+      <div class="row">
+        <div class="col-lg-8 col-md-12 col-sm-12">
+          <h2>What do I do?</h2>
+          <p id="whatIDo">
+          </p>
+          <a class="btn btn-primary" id="resumeURL" href="">Hire Me</a>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12">
+          <img class="secondary-image" id="secondaryImage" src="" alt="Profile Picture">
         </div>
       </div>
     </div>
 
     <div>
-      <div class="container-fluid container-70">
-        <div class="row">
-          <div class="col-lg-8 col-md-12 col-sm-12">
-            <h2>What do I do?</h2>
-            <p id="whatIDo">
-            </p>
-            <a class="btn btn-primary" id="resumeURL" href="">Hire Me</a>
-          </div>
-          <div class="col-lg-4 col-md-12 col-sm-12">
-            <img class="secondary-image" id="secondaryImage" src="" alt="Profile Picture">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <div class="container-fluid container-70">
+      <div id="resume" class="container-fluid container-70">
         <div class="row">
           <h2 style="padding-left: 0;">Something that I work upon!</h2>
           <div class="col-lg-6 col-md-12 col-sm-12">
@@ -105,30 +101,26 @@
       </div>
     </div>
 
-    <div>
-      <div class="container-fluid container-70">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            <h2 style="padding-left: 0;"> Communities!</h2>
-            <div class="row" id="commrow">
-            </div>
+    <div class="container-fluid container-70">
+      <div class="row">
+        <h2 style="padding-left: 0; margin-left: 0;"> Communities!</h2>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="row" id="commrow">
           </div>
         </div>
       </div>
     </div>
 
-    <div>
-      <div class="container container-70" style="text-align: center;">
-        <h2>
-          Connect with me!
-        </h2>
-        <div>
-          <a href="" id="mail" class="social-icon fas fa-envelope"></a>
-          <a href="" id="facebook" class="social-icon fab fa-facebook"></a>
-          <a href="" id="instagram" class="social-icon fab fa-instagram-square"></a>
-          <a href="" id="linkedin" class="social-icon fab fa-linkedin"></a>
-          <a href="" id="twitter" class="social-icon fab fa-twitter"></a>
-        </div>
+    <div id="contact" class="container container-70" style="text-align: center;">
+      <h2>
+        Connect with me!
+      </h2>
+      <div>
+        <a href="" id="mail" class="social-icon fas fa-envelope"></a>
+        <a href="" id="facebook" class="social-icon fab fa-facebook"></a>
+        <a href="" id="instagram" class="social-icon fab fa-instagram-square"></a>
+        <a href="" id="linkedin" class="social-icon fab fa-linkedin"></a>
+        <a href="" id="twitter" class="social-icon fab fa-twitter"></a>
       </div>
     </div>
 
