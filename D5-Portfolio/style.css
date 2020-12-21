@@ -20,9 +20,13 @@ body {
   margin: 50px auto;
 }
 
+.secondary-image {
+  width: 400px;
+  border-radius: 5px;
+}
+
 .profile-picture {
   max-width: 300px;
-  box-shadow: 2px 5px rgb(181, 158, 158);
 }
 .button-picture {
   width: 100px;
@@ -57,11 +61,6 @@ a:hover {
   opacity: 0.5;
 }
 
-.material-icons {
-  padding: 10px;
-  font-size: 40px;
-}
-
 .social-icon {
   font-size: 1.5rem;
   margin: 10px;
@@ -72,6 +71,7 @@ a:hover {
 .skill-badges {
   font-size: 18px;
   font-weight: normal;
+  margin: 10px 5px;
 }
 
 .content-container {
@@ -82,8 +82,10 @@ a:hover {
   margin-top: 1.5rem;
 }
 
-.community-image {
+.community-image,.tech-image {
   max-width: 80px;
+  max-height: 80px;
+
 }
 
 @media screen and (max-width: 992px) {
@@ -99,6 +101,10 @@ a:hover {
     max-width: 200px;
     padding: 30px 0;
   }
+  .secondary-image {
+    max-width: 200px;
+    padding: 30px 0;
+  }
   body {
     text-align: center;
   }
@@ -108,6 +114,10 @@ a:hover {
 @media screen and (max-width: 600px) {
   .navbar-container {
     width: 100%;
+  }
+  .secondary-image {
+    max-width: 200px;
+    padding: 30px 0;
   }
 
   .container-70 {

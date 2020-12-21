@@ -1,50 +1,47 @@
 {
-    "name": "FirstName LastName",
+    "name": "Kartik Derasari",
     "designation": "Web Developer",
-    "bio": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, beatae quis commodi, dolorem eos impedit in aliquid dignissimos quia ad exercitationem ex aspernatur possimus quisquam hic architecto deleniti te",
-    "whatIDo": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, beatae quis commodi, dolorem eos impedit in aliquid dignissimos quia ad exercitationem ex aspernatur possimus quisquam hic architecto deleniti tempore aliquam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, beatae quis commodi",
-    "resumeURL": "#",
-    "profileImageURL": "https://picsum.photos/300",
-    "secondaryImageURL": "https://picsum.photos/300",
+    "bio": "I’m a Final Year Computer Engineering Student passionate about Web Development &  Developer Community Building. I believe in creating impacts through building relationships, delivering Events and Community Programs with Developer Advocacy. It has been about three years since I started my journey around Communities & my passion has always pushed me more to bring people together to drive Advocacy.",
+    "whatIDo": "I love exploring Web technologies while building appealing and interactive websites. Around these times, I'm indulged in experimenting JavaScript to make websites more lively. Meanwhile, I'm also exploring UI designing to enhance web development experiences.",
+    "resumeURL": "mailto:derasarikartik@gmail.com",
+    "profileImageURL": "https://kartikderasari.me/img/main_photo.png",
+    "secondaryImageURL": "https://kartikderasari.me/img/img_bg_1.png",
     "skills": [
-        "One",
-        "Two",
-        "Three",
-        "Four"
-    ],
+        "Web Development",
+        "Community Building",
+        "Program Management"        
+        ],
     "communities": [
         {
-            "commName": "One",
-            "commImageURL": "https://picsum.photos/80",
-            "commURL": "https://picsum.photos/80"
+            "commName": "DSC Silver Oak University",
+            "commImageURL": "https://kartikderasari.me/img/communities/DSC.png",
+            "commURL": ""
         },
         {
-            "commName": "Two",
-            "commImageURL": "https://picsum.photos/80",
-            "commURL": "https://picsum.photos/80"
+            "commName": "GDG Cloud Ahmedabad",
+            "commImageURL": "https://kartikderasari.me/img/communities/gdg_cloud_ahm.png",
+            "commURL": ""
         },
         {
-            "commName": "Three",
-            "commImageURL": "https://picsum.photos/80",
-            "commURL": "https://picsum.photos/80"
+            "commName": "Google AI | Explore ML",
+            "commImageURL": "https://kartikderasari.me/img/communities/exploreml.png",
+            "commURL": ""
         },
         {
-            "commName": "Four",
-            "commImageURL": "https://picsum.photos/80",
-            "commURL": "https://picsum.photos/80"
+            "commName": "Silver Oak University IEEE Student Branch",
+            "commImageURL": "https://kartikderasari.me/img/communities/IEEESOUSB.png",
+            "commURL": ""
         }
-
     ],
     "techImageURL": [
-        "https://picsum.photos/100",
-        "https://picsum.photos/100",
-        "https://picsum.photos/100",
-        "https://picsum.photos/100"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/CSS.3.svg/1200px-CSS.3.svg.png",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Javascript-shield.svg/1200px-Javascript-shield.svg.png"
     ],
-    "email": "test@gmail.com",
-    "facebook": "https://facebook.com/",
-    "instagram": "https://instagram.com/",
-    "linkedin": "https://linkedin.com/",
-    "twitter": "https://twitter.com/"
+    "email": "derasarikartik@gmail.com",
+    "facebook": "https://www.facebook.com/kartik.derasari.9",
+    "instagram": "https://www.instagram.com/kartik_derasari/",
+    "linkedin": "https://www.linkedin.com/in/kartikderasari/",
+    "twitter": "https://twitter.com/kartik_derasari"
 }
 
