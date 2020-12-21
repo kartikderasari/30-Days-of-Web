@@ -14,22 +14,22 @@
     "communities": [
         {
             "commName": "DSC Silver Oak University",
-            "commImageURL": "https://kartikderasari.me/img/communities/DSC.png",
+            "commImageURL": "./img/DSC-SOU.png",
             "commURL": "https://dsc.community.dev/silver-oak-university/"
         },
         {
             "commName": "GDG Cloud Ahmedabad",
-            "commImageURL": "https://kartikderasari.me/img/communities/gdg_cloud_ahm.png",
+            "commImageURL": "./img/GDG-Cloud-Ahmedabad.png",
             "commURL": "https://gdg.community.dev/gdg-cloud-ahmedabad/"
         },
         {
             "commName": "Google AI | Explore ML",
-            "commImageURL": "https://kartikderasari.me/img/communities/exploreml.png",
+            "commImageURL": "./img/Explore-ML.png",
             "commURL": "https://events.withgoogle.com/explore-ml-in/"
         },
         {
             "commName": "Silver Oak University IEEE Student Branch",
-            "commImageURL": "https://kartikderasari.me/img/communities/IEEESOUSB.png",
+            "commImageURL": "./img/IEEE-SOU.png",
             "commURL": "http://ieee.socet.edu.in/"
         }
     ],

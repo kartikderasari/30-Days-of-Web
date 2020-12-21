@@ -80,12 +80,15 @@ a:hover {
 
 .comm-name {
   margin-top: 1.5rem;
+  color: #635353;
 }
 
 .community-image,.tech-image {
   max-width: 80px;
   max-height: 80px;
-
+}
+a {
+  color: inherit;
 }
 
 @media screen and (max-width: 992px) {
