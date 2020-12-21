@@ -9,11 +9,17 @@ body {
 .navbar {
   background-color: #eae5e5;
 }
-.navbar-container,
-.profile-container {
-  margin-top: 2rem;
-  width: auto;
+
+.navbar-container {
+  width: 70%;
+  margin: 0 auto;
 }
+
+.container-70 {
+  width: 70%;
+  margin: 50px auto;
+}
+
 .profile-picture {
   max-width: 300px;
 }
@@ -35,22 +41,37 @@ a:hover {
   height: 100px;
 }
 
-.badge {
-  height: 8rem;
-  width: 8rem;
-  margin: 20px 10px;
+.button-badge {
+  height: 7rem;
+  width: 7rem;
+  margin: 0px 10px;
 }
 
 .badge-inner-text {
   position: relative;
-  top: 3.5rem;
+  top: 3rem;
   color: white;
 }
 .badge-inner-text:hover {
-  opacity: 0.3;
+  opacity: 0.5;
 }
 
 .material-icons {
   padding: 10px;
   font-size: 40px;
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  margin: 10px;
+  padding: 10px 5px;
+}
+
+.skill-badges {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.content-container {
+  padding: 20px 0;
 }
