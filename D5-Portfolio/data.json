@@ -33,6 +33,40 @@
             "commURL": "http://ieee.socet.edu.in/"
         }
     ],
+    "projects": [
+        {
+            "projectName": "DSC Silver Oak University",
+            "projectDesc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti corporis enim officia itaque quae quis beatae illum nostrum culpa iusto in facilis non quos velit nisi veniam eius, ullam similique.Adipisci minus perspiciatis maiores nihil temporibus, velit quo impedit et rem corrupti porro? Ducimus laborum ullam et fugit. Nesciunt, quam dolores aspernatur laboriosam veniam perferendis illum labore enim voluptate iusto!",
+            "techStack" : [
+                "HTML", "CSS3", "BootStrap"
+            ],
+            "projectURL": "https://projectURL.com"
+        },
+        {
+            "projectName": "GDG Cloud Ahmedabad",
+            "projectDesc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti corporis enim officia itaque quae quis beatae illum nostrum culpa iusto in facilis non quos velit nisi veniam eius, ullam similique.Adipisci minus perspiciatis maiores nihil temporibus, velit quo impedit et rem corrupti porro? Ducimus laborum ullam et fugit. Nesciunt, quam dolores aspernatur laboriosam veniam perferendis illum labore enim voluptate iusto!",
+            "techStack" : [
+                "HTML", "CSS3"
+            ],
+            "projectURL": "https://projectURL.com"
+        },
+        {
+            "projectName": "Google AI | Explore ML",
+            "projectDesc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti corporis enim officia itaque quae quis beatae illum nostrum culpa iusto in facilis non quos velit nisi veniam eius, ullam similique.Adipisci minus perspiciatis maiores nihil temporibus, velit quo impedit et rem corrupti porro? Ducimus laborum ullam et fugit. Nesciunt, quam dolores aspernatur laboriosam veniam perferendis illum labore enim voluptate iusto!",
+            "techStack" : [
+                "HTML", "CSS3"
+            ],
+            "projectURL": "https://projectURL.com"
+        },
+        {
+            "projectName": "Silver Oak University IEEE Student Branch",
+            "projectDesc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti corporis enim officia itaque quae quis beatae illum nostrum culpa iusto in facilis non quos velit nisi veniam eius, ullam similique.Adipisci minus perspiciatis maiores nihil temporibus, velit quo impedit et rem corrupti porro? Ducimus laborum ullam et fugit. Nesciunt, quam dolores aspernatur laboriosam veniam perferendis illum labore enim voluptate iusto!",
+            "techStack" : [
+                "HTML", "CSS3", "BootStrap"
+            ],
+            "projectURL": "https://projectURL.com"
+        }
+    ],
     "techImageURL": [
         "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png",
         "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/CSS.3.svg/1200px-CSS.3.svg.png",

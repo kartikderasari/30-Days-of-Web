@@ -17,12 +17,12 @@ body {
 
 .container-70 {
   width: 80%;
-  margin: 50px auto;
+  margin: 5% auto;
 }
 
 .secondary-image {
   width: 400px;
-  border-radius: 5px;
+  border-radius: 25%;
 }
 
 .profile-picture {
@@ -62,10 +62,16 @@ a:hover {
 }
 
 .social-icon {
-  font-size: 1.5rem;
-  margin: 10px;
-  padding: 10px 5px;
+  font-size: 2rem;
+  margin: 0;
+  margin-top: 10px;
+  padding: 0 5px;
   color: inherit;
+}
+
+.skill-icon {
+  font-size: 5rem;
+  margin: 10px;
 }
 
 .skill-badges {
@@ -83,12 +89,35 @@ a:hover {
   color: #635353;
 }
 
-.community-image,.tech-image {
+.community-image,
+.tech-image {
   max-width: 80px;
   max-height: 80px;
 }
 a {
   color: inherit;
+}
+
+.project-card {
+  width: 30%;
+  border: 1px solid rgb(122, 113, 113);
+  padding: 15px;
+  border-radius: 7px;
+  margin: 10px;
+  background-color: #d5d5d5;
+}
+
+.community-card {
+  width: 30%;
+  border: 1px solid rgb(122, 113, 113);
+  padding: 15px;
+  border-radius: 7px;
+  margin: 10px;
+  background-color: #d5d5d5;
+}
+
+#skill-row {
+  text-align: left;
 }
 
 @media screen and (max-width: 992px) {
@@ -98,29 +127,44 @@ a {
 
   .container-70 {
     width: 100%;
+    margin: 7% auto;
   }
 
   .profile-picture {
     max-width: 200px;
-    padding: 30px 0;
+    padding: 10px 0;
   }
   .secondary-image {
-    max-width: 200px;
-    padding: 30px 0;
+    max-width: 800px;
+    padding: 20px 0;
   }
   body {
     text-align: center;
   }
-}
+  .community-image,
+  .tech-image {
+    max-width: 80px;
+    max-height: 80px;
+    margin: 10px 0;
+  }
+  #skill-row {
+    text-align: center;
+  }
+  .community-card {
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+  }
+  .project-card {
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .navbar-container {
     width: 100%;
-  }
-  .secondary-image {
-    max-width: 200px;
-    padding: 30px 0;
   }
 
   .container-70 {
@@ -132,6 +176,9 @@ a {
     padding: 30px 0;
   }
   body {
+    text-align: center;
+  }
+  #skill-row {
     text-align: center;
   }
 }

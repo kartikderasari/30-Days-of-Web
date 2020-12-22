@@ -2,7 +2,6 @@ fetch('data.json')
     .then((res) => res.json())
     .then((data) => { showData(data) })
 
-
 function showData(data) {
     document.getElementById('title').innerHTML = data.name;
     document.getElementById('name').innerHTML = data.name;
@@ -20,25 +19,31 @@ function showData(data) {
         `;
         }
     )
-    data.techImageURL.forEach(
-        (url) => {
-            document.getElementById('techimage').innerHTML +=
+    data.communities.forEach(
+        (community) => {
+            document.getElementById('community-container').innerHTML +=
                 `
-            <div class="col-3 col-md-3 col-sm-3">
-            <img class="tech-image" src="${url}" alt="">
-          </div>
+                <div class="community-card row">
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                  <img src="${community.commImageURL}" alt="" class="community-image rounded-circle">
+                </div>
+                <div class="col-lg-8 col-md-12 col-sm-12">
+                  <a href="${community.commURL}" target="_blank"><h4>${community.commName}</h4></a>
+                  <p>Community Lead</p>
+                </div>
+              </div>
         `;
         }
     )
-    data.communities.forEach(
-        (community) => {
-            document.getElementById('commrow').innerHTML +=
+
+    data.projects.forEach(
+        (project) => {
+            document.getElementById('project-container').innerHTML +=
                 `
-            <div class="content-container col-lg-1 col-md-3 col-sm-2">
-                <img class="rounded-circle community-image" src="${community.commImageURL}" alt="" srcset="">
-            </div>
-            <div class="content-container col-lg-3 col-md-3 col-sm-4">
-                <h5 class="comm-name"><a href="${community.commURL}" style="color: "#635353";>${community.commName}</a></h5>
+            <div class="project-card">
+              <h4>${project.projectName}</h4>
+              <p>${project.projectDesc}</p>
+              <a href="${project.projectURL}" target="_blank" class="btn btn-primary">Visit here</a>
             </div>
         `;
         }
