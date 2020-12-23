@@ -1,37 +1,97 @@
+@font-face {
+  font-family: ProductSans;
+  src: url("./fonts/ProductSans.ttf");
+}
+
+@font-face {
+  font-family: RobotoMono;
+  src: url("./fonts/RobotoMono.ttf");
+}
+
 body {
-  background-color: rgb(197, 235, 222);
+  margin: 0;
+  color: #616161;
+  font-family: ProductSans;
 }
 
 table {
-  text-align: left;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
   line-height: 40px;
+  border-collapse: collapse;
+}
+
+button {
+  font-family: Roboto;
+  color: #0005df;
+  background-color: #fff;
+  border: 1px solid #ccbdbd;
+  border-radius: 7px;
+  padding: 7px 10px;
+  margin: 5px 7px;
+}
+
+button:hover {
+  background-color: #f5f5f5;
+}
+
+.navbar {
+  border-bottom: 1px solid #dadce0;
+  background-color: white;
+  box-shadow: 1px 3px 3px #ccbdbd;
+}
+
+.nav-heading {
+  margin: 20px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.button-container {
+  text-align: center;
+  margin: 20px auto;
 }
 
 .main-container {
-  display: flex;
-  flex-wrap: wrap;
+  background-color: #fafafa;
+  width: 35%;
+  min-width: 290px;
   margin: 40px auto;
-  justify-content: center;
-}
-
-.contact {
-  margin: 40px;
-  padding: 30px;
-  background-color: rgb(255, 245, 245);
+  padding: 10px;
   border-radius: 7px;
-}
-
-.contact:hover {
-  box-shadow: 2px 2px grey;
+  box-shadow: 0px 0px 7px 1px #ccbdbd;
+  text-align: center;
 }
 
 .input-container {
-  background-color: rgb(255, 245, 245);
-  width: 400px;
+  background-color: #fafafa;
+  width: 25%;
+  min-width: 290px;
   margin: 40px auto;
-  padding: 20px;
+  padding: 10px;
   border-radius: 7px;
+  box-shadow: 0px 0px 7px 1px #ccbdbd;
+  text-align: center;
 }
-.input-container:hover {
-  box-shadow: 2px 2px grey;
+
+.btn {
+  margin: 2px;
+  padding: 4px;
+}
+
+#contact-container tr {
+  border-bottom: 1px dotted #ccbdbd;
+}
+
+input {
+  border-radius: 7px;
+  width: 70%;
+}
+
+@media screen and (max-width: 992px) {
+  .btn {
+    margin: 2px;
+    padding: 3px;
+  }
 }
