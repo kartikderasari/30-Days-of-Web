@@ -1,5 +1,4 @@
-document.getElementById('setStorageButton').addEventListener('click', setData);
-//document.getElementById('deleteStorageButton').addEventListener('click', deleteData);
+let setData;
 
 let users = [];
 
@@ -50,7 +49,7 @@ let printData = () => {
     }
 }
 
-function setData() {
+setData = () => {
     let name = document.getElementById('name').value;
     let age = document.getElementById('age').value;
 
@@ -66,4 +65,5 @@ function setData() {
     document.getElementById('age').value = '';
 }
 
+document.getElementById('setStorageButton').addEventListener('click', setData);
 printData();

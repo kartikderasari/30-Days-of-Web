@@ -18,15 +18,22 @@ clearAllData = () => {
 
 
 addData = () => {
-    let newValue = {
-        name: document.getElementById('name').value,
-        no: document.getElementById('no').value
+
+    if (document.getElementById('name').value.length != 0 && document.getElementById('no').value.length != 0) {
+        let newValue = {
+            name: document.getElementById('name').value,
+            no: document.getElementById('no').value
+        }
+        arr.unshift(newValue);
+        localStorage.setItem("LocalData", JSON.stringify(arr));
+        showData();
+        document.getElementById('name').value = '';
+        document.getElementById('no').value = '';
     }
-    arr.unshift(newValue);
-    localStorage.setItem("LocalData", JSON.stringify(arr));
-    showData();
-    document.getElementById('name').value = '';
-    document.getElementById('no').value = '';
+    else {
+        return alert('Please input correct values!');
+    }
+
 }
 
 showData = () => {
@@ -72,7 +79,7 @@ saveData = (index) => {
     let name = document.getElementById(`name${index}`).value;
     let no = document.getElementById(`number${index}`).value;
     if (name.length == 0 || no.length == 0) {
-        return alert('Input proper values');
+        return alert('Please input correct values!');
     }
     let newValue = {
         name: name,
