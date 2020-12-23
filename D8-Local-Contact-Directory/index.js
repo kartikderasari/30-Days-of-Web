@@ -9,6 +9,7 @@ let array = [];
 clearAllData = () => {
     localStorage.removeItem("LocalData");
     showData();
+    array = [];
 }
 
 
