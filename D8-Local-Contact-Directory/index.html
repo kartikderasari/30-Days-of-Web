@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Contact Directory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="text-align: center;">
+    <h1>Local Contact Directory</h1>
+
+    <div class="input-container">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" name="" id="name"></td>
+            </tr>
+            <tr>
+                <td>Mobile Number:</td>
+                <td><input type="text" name="" id="no"></td>
+            </tr>
+            <tr>
+                <td> <button id="addData" onclick="addData()" type="submit">Add Data</button></td>
+                <td>
+                    <button id="addData" onclick="clearAllData()" type="submit">Clear All Data</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="main-container" id="main-container">
+
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

@@ -36,6 +36,18 @@ function showData(data) {
         }
     )
 
+    let showpills = (arr) => {
+        let pills = '';
+        arr.forEach(
+            (ele) => {
+                console.log(ele);
+                pills +=
+                    `<span class="badge bg-secondary skill-badges">${ele}</span>`;
+            }
+        )
+        return pills;
+    }
+
     data.projects.forEach(
         (project) => {
             document.getElementById('project-container').innerHTML +=
@@ -43,6 +55,7 @@ function showData(data) {
             <div class="project-card">
               <h4>${project.projectName}</h4>
               <p>${project.projectDesc}</p>
+              <p>${showpills(project.techStack)}</p>
               <a href="${project.projectURL}" target="_blank" class="btn btn-primary">Visit here</a>
             </div>
         `;

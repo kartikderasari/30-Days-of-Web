@@ -1,0 +1,37 @@
+body {
+  background-color: rgb(197, 235, 222);
+}
+
+table {
+  text-align: left;
+  line-height: 40px;
+}
+
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px auto;
+  justify-content: center;
+}
+
+.contact {
+  margin: 40px;
+  padding: 30px;
+  background-color: rgb(255, 245, 245);
+  border-radius: 7px;
+}
+
+.contact:hover {
+  box-shadow: 2px 2px grey;
+}
+
+.input-container {
+  background-color: rgb(255, 245, 245);
+  width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 7px;
+}
+.input-container:hover {
+  box-shadow: 2px 2px grey;
+}
