@@ -28,8 +28,33 @@ button {
   background-color: #fff;
   border: 1px solid #ccbdbd;
   border-radius: 7px;
-  padding: 7px 10px;
+  padding: 0.375rem 0.75rem;
   margin: 5px 7px;
+}
+
+#addData,
+#saveButton {
+  background-color: #3d7ff5;
+  color: white;
+}
+
+#deleteButton {
+  background-color: #d85663;
+  color: white;
+}
+
+#deleteButton:hover,
+#deleteButton:active {
+  background-color: #f77079;
+  color: white;
+}
+
+#addData:hover,
+#addData:active,
+#saveButton:hover,
+#saveButton:active {
+  background-color: #5d99ff;
+  color: white;
 }
 
 button:hover {
@@ -75,18 +100,18 @@ button:hover {
   text-align: center;
 }
 
-.btn {
-  margin: 2px;
-  padding: 4px;
-}
-
 #contact-container tr {
   border-bottom: 1px dotted #ccbdbd;
 }
 
 input {
+  border: 1px solid #dadce0;
   border-radius: 7px;
   width: 70%;
+}
+input:focus. input:active {
+  border: 1px solid #dadce0;
+  border-radius: 7px;
 }
 
 @media screen and (max-width: 992px) {
