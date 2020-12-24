@@ -1,4 +1,6 @@
-/* var xhttp = new XMLHttpRequest();
+/* 
+// AJAX Implementation of JSON GET Request
+var xhttp = new XMLHttpRequest();
 xhttp.open("GET", "data.json", true);
 xhttp.onload = function () {
     if (this.status == 200) {
@@ -8,48 +10,53 @@ xhttp.onload = function () {
 }
 xhttp.send();*/
 
+let showData;
+
+//Fetch Implementation of JSON GET Request
 fetch('data.json')
     .then((res) => res.json())
     .then((data) => { showData(data) })
 
-function showData(userData) {
+showData = (userData) => {
 
     document.getElementById('name').innerHTML = `<h1>${userData.name}</h1>`;
     document.getElementById('address').innerHTML = userData.address;
-    //document.getElementById('dob').innerHTML += userData.dob;
 
-    for (let i = 0; i < userData.socialLinks.length; i++) {
+    userData.socialLinks.forEach((data) => {
         document.getElementById('socialLinks').innerHTML += `
-            <p style="margin: 0;"><a href="${userData.socialLinks[i].url}">${userData.socialLinks[i].url}</a></p>`;
+        <p style="margin: 0;"><a href="${data.url}">${data.url}</a></p>`;
     }
+    );
 
-    for (let i = 0; i < userData.education.length; i++) {
+    userData.education.forEach((data) => {
         document.getElementById('educationTableBody').innerHTML += `
-            <tr>
-                <td>${userData.education[i].year}</td>
-                <td>${userData.education[i].degree}</td>
-                <td>${userData.education[i].institute}</td>
-                <td>${userData.education[i].cgpa}</td>
+        <tr>
+                <td>${data.year}</td>
+                <td>${data.degree}</td>
+                <td>${data.institute}</td>
+                <td>${data.cgpa}</td>
             </tr>`;
     }
+    );
 
-    for (let i = 0; i < userData.experience.length; i++) {
+    userData.experience.forEach((data) => {
         document.getElementById('expContent').innerHTML += `
-            <strong>${userData.experience[i].designation}</strong>    
-            <p>${userData.experience[i].expBrief}</p>
-        `;
+        <strong>${data.designation}</strong>    
+        <p>${data.expBrief}</p>`;
     }
+    );
 
-    for (let i = 0; i < userData.accomplishments.length; i++) {
+    userData.accomplishments.forEach((data) => {
         document.getElementById('accomContent').innerHTML += `
-            <li> ${userData.accomplishments[i]} </li>`;
+            <li> ${data} </li>`;
     }
+    );
 
-    for (let i = 0; i < userData.certScholarship.length; i++) {
+    userData.certScholarship.forEach((data) => {
         document.getElementById('certContent').innerHTML += `
-            <li> ${userData.certScholarship[i]} </li>`;
+            <li> ${data} </li>`;
     }
-
+    );
 }
 
 document.getElementById('printResumeButton').addEventListener('click', function (e) {
