@@ -1,16 +1,19 @@
 const taskList = [
     {
-        taskName: 'Have',
+        taskName: 'Demo Task - 1',
         status: 'done',
     },
     {
-        taskName: 'Karo',
+        taskName: 'Demo Task - 2',
         status: 'ongoing',
     }
 ];
 
-showData();
-
+let addTask;
+let showData;
+let setOngoingStatus;
+let setAbortStatus;
+let setDoneStatus;
 document.getElementById('addTaskButton').addEventListener("click", () => {
     let task = document.getElementById('taskInputField').value;
 
@@ -24,41 +27,40 @@ document.getElementById('addTaskButton').addEventListener("click", () => {
         addTask(newTaskObj);
     }
 });
-
-function addTask(newTaskObj) {
+addTask = (newTaskObj) => {
     taskList.unshift(newTaskObj);
     console.log(taskList);
     document.getElementById('taskInputField').value = "";
     showData();
 }
-
-
-function showData() {
+showData = () => {
     document.getElementById('taskTableData').innerHTML = '';
-    for (let i = 0; i < taskList.length; i++) {
+    let i = 0;
+    taskList.forEach((data) => {
         document.getElementById('taskTableData').innerHTML +=
             `<tr>
-                    <td class="tasktext">${taskList[i].taskName}</td>
-                    <td>
-                        <button class="btn ongoingButton" id="ongoing${i}" onclick="setOngoingStatus(${i})">Ongoing</button>
-                        <button class="btn doneButton" id="done${i}" onclick="setDoneStatus(${i})">Done</button>
-                        <button class="btn abortButton" id="abort${i}" onclick="setAbortStatus(${i})">Abort</button>
-                    </td>
-                </tr>`;
-        document.getElementById(`${taskList[i].status}${i}`).disabled = true;
+                <td class="tasktext">${data.taskName}</td>
+                <td>
+                    <button class="btn ongoingButton" id="ongoing${i}" onclick="setOngoingStatus(${i})">Ongoing</button>
+                    <button class="btn doneButton" id="done${i}" onclick="setDoneStatus(${i})">Done</button>
+                    <button class="btn abortButton" id="abort${i}" onclick="setAbortStatus(${i})">Abort</button>
+                </td>
+            </tr>`;
+        document.getElementById(`${data.status}${i}`).disabled = true;
+        i++;
     }
+    );
 }
-
-function setOngoingStatus(index) {
+setOngoingStatus = (index) => {
     taskList[index].status = "ongoing";
     showData();
 }
-
-function setAbortStatus(index) {
+setAbortStatus = (index) => {
     taskList[index].status = "abort";
     showData();
 }
-function setDoneStatus(index) {
+setDoneStatus = (index) => {
     taskList[index].status = "done";
     showData();
 }
+showData();
