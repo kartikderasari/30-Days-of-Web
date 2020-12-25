@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Product Sans";
+  src: url("./fonts/ProductSans.ttf");
+}
+
+body {
+  font-family: Product Sans;
+}
+
+.wrapper-container {
+  width: 90%;
+}
