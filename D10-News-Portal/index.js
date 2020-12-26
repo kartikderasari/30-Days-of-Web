@@ -85,7 +85,7 @@ setCountries = () => {
 
 defaultIndiaNews = () => {
     document.getElementById('india-news-header').innerHTML = 'Top stories - India';
-    fetch('http://newsapi.org/v2/top-headlines?country=in&apiKey=ad6415a1feba413a966465c21c3a2e83')
+    fetch('https://newsapi.org/v2/top-headlines?country=in&apiKey=ad6415a1feba413a966465c21c3a2e83')
         .then(res => res.json())
         .then(data => showNewsData(data.articles, 'india-news-container'))
 }
@@ -96,7 +96,7 @@ getLocation = () => {
             (position) => {
                 let lat = position.coords.latitude;
                 let lon = position.coords.longitude;
-                fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=eb0896e08753ba41a1fdec0668d261c0&units=metric`)
+                fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=eb0896e08753ba41a1fdec0668d261c0&units=metric`)
                     .then(res => res.json())
                     .then(data => showWeatherData(data))
             }
@@ -115,7 +115,7 @@ searchArticles = () => {
 
     if (query.length != 0) {
         document.getElementById('searchHeader').innerHTML = header;
-        fetch(`http://newsapi.org/v2/everything?q='${query}'&apiKey=ad6415a1feba413a966465c21c3a2e83`)
+        fetch(`https://newsapi.org/v2/everything?q='${query}'&apiKey=ad6415a1feba413a966465c21c3a2e83`)
             .then(res => res.json())
             .then(data => showNewsData(data.articles, 'searchArticleContainer'))
     } else {
@@ -133,7 +133,7 @@ searchGlobalNews = () => {
 
     if (country != 'default' && category != 'default') {
         document.getElementById('globalSearchHeader').innerHTML = header;
-        fetch(`http://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=ad6415a1feba413a966465c21c3a2e83`)
+        fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=ad6415a1feba413a966465c21c3a2e83`)
             .then(res => res.json())
             .then(data => showNewsData(data.articles, 'global-news-container'))
 
@@ -189,7 +189,7 @@ showCategory = () => {
 
 indianCategoryNews = (category) => {
     document.getElementById('india-news-header').innerHTML = `Top ${category} stories - India`;
-    fetch(`http://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=ad6415a1feba413a966465c21c3a2e83`)
+    fetch(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=ad6415a1feba413a966465c21c3a2e83`)
         .then(res => res.json())
         .then(data => showNewsData(data.articles, 'india-news-container'))
 }
