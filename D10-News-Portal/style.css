@@ -10,3 +10,9 @@ body {
 .wrapper-container {
   width: 90%;
 }
+
+@media screen and (max-width: 992px) {
+  .wrapper-container {
+    width: 100%;
+  }
+}
