@@ -74,7 +74,39 @@ let categories = {
     technology: "Technology"
 }
 
-setCountries = () => {
+let baseURL = 'https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/';
+
+//Functions-for-India
+
+defaultIndiaNews = () => {
+    document.getElementById('india-news-header').innerHTML = 'Top stories - India';
+    fetch(baseURL + 'top-headlines?country=in&apiKey=ad6415a1feba413a966465c21c3a2e83')
+        .then(res => res.json())
+        .then(data => showNewsData(data.articles, 'india-news-container'))
+}
+
+showCategory = () => {
+    document.getElementById('category-container').innerHTML = `<button onclick="defaultIndiaNews()" class="btn btn-outline-success btn-sm mx-1 my-1">All</button>`;
+    for (category in categories) {
+        document.getElementById('category-container').innerHTML += `<button onclick="indianCategoryNews('${category}')" class="btn btn-outline-success btn-sm mx-1 my-1">${categories[category]}</button>`;
+    }
+}
+
+indianCategoryNews = (category) => {
+    document.getElementById('india-news-header').innerHTML = `Top ${category} stories - India`;
+    fetch(baseURL + `top-headlines?country=in&category=${category}&apiKey=ad6415a1feba413a966465c21c3a2e83`)
+        .then(res => res.json())
+        .then(data => showNewsData(data.articles, 'india-news-container'))
+}
+
+//Functions-for-World
+
+let defaultWorld = () => {
+    document.getElementById('globalSearchHeader').innerHTML = '';
+    document.getElementById('global-news-container').innerHTML = '';
+};
+
+setOptions = () => {
     for (country in countries) {
         document.getElementById('countryGroupSelect').innerHTML += `<option value="${country}">${countries[country]}</option>`;
     };
@@ -83,27 +115,32 @@ setCountries = () => {
     };
 }
 
-defaultIndiaNews = () => {
-    document.getElementById('india-news-header').innerHTML = 'Top stories - India';
-    fetch('https://newsapi.org/v2/top-headlines?country=in&apiKey=ad6415a1feba413a966465c21c3a2e83')
-        .then(res => res.json())
-        .then(data => showNewsData(data.articles, 'india-news-container'))
+searchGlobalNews = () => {
+
+    let country = document.getElementById('countryGroupSelect').value;
+    let category = document.getElementById('categoryGroupSelect').value;
+
+    document.getElementById('global-news-container').innerHTML = '';
+    let header = `Top ${category} stories - ${countries[country]}`;
+
+    if (country != 'default' && category != 'default') {
+        document.getElementById('globalSearchHeader').innerHTML = header;
+        fetch(baseURL + `top-headlines?country=${country}&category=${category}&apiKey=ad6415a1feba413a966465c21c3a2e83`)
+            .then(res => res.json())
+            .then(data => showNewsData(data.articles, 'global-news-container'))
+
+        document.getElementById('countryGroupSelect').value = 'default';
+        document.getElementById('categoryGroupSelect').value = 'default';
+    } else {
+        console.log('Input Data');
+    }
 }
 
-getLocation = () => {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                let lat = position.coords.latitude;
-                let lon = position.coords.longitude;
-                fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=eb0896e08753ba41a1fdec0668d261c0&units=metric`)
-                    .then(res => res.json())
-                    .then(data => showWeatherData(data))
-            }
-        );
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
+//Functions-for-Search-Articles
+
+let defaultSearchForArticle = () => {
+    document.getElementById('searchHeader').innerHTML = '';
+    document.getElementById('searchArticleContainer').innerHTML = '';
 }
 
 searchArticles = () => {
@@ -115,7 +152,7 @@ searchArticles = () => {
 
     if (query.length != 0) {
         document.getElementById('searchHeader').innerHTML = header;
-        fetch(`https://newsapi.org/v2/everything?q='${query}'&apiKey=ad6415a1feba413a966465c21c3a2e83`)
+        fetch(baseURL + `everything?q='${query}'&apiKey=ad6415a1feba413a966465c21c3a2e83`)
             .then(res => res.json())
             .then(data => showNewsData(data.articles, 'searchArticleContainer'))
     } else {
@@ -123,24 +160,28 @@ searchArticles = () => {
     }
 }
 
-searchGlobalNews = () => {
+//Common-Functions
 
-    let country = document.getElementById('countryGroupSelect').value;
-    let category = document.getElementById('categoryGroupSelect').value;
-
-    document.getElementById('global-news-container').innerHTML = '';
-    let header = `Top stories - ${countries[country]}`;
-
-    if (country != 'default' && category != 'default') {
-        document.getElementById('globalSearchHeader').innerHTML = header;
-        fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=ad6415a1feba413a966465c21c3a2e83`)
-            .then(res => res.json())
-            .then(data => showNewsData(data.articles, 'global-news-container'))
-
-        document.getElementById('countryGroupSelect').value = 'default';
-        document.getElementById('categoryGroupSelect').value = 'default';
+getLocation = () => {
+    let options = {
+        enableHighAccuracy: true,
+        timeout: 50000,
+    }
+    let error = (err) => {
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                let lat = position.coords.latitude;
+                let lon = position.coords.longitude;
+                fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=eb0896e08753ba41a1fdec0668d261c0&units=metric`)
+                    .then(res => res.json())
+                    .then(data => showWeatherData(data))
+            }
+            , error, options);
     } else {
-        console.log('Input Data');
+        x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
 
@@ -169,34 +210,40 @@ showNewsData = (allData, id) => {
     allData.forEach(
         (data) => {
             document.getElementById(`${id}`).innerHTML +=
-                `<div class="headline-card my-3 card">                
+                `<div class="headline-card my-3 card">
+            <div class="row no-gutters">
+                <div class="col-md-4 my-auto">
+                <img src="${data.urlToImage}" class="card-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                            <h4 class="card-title my-0">${data.title}</h4>
+                            <small class="text-muted">${data.source.name} | ${calculateTime(data.publishedAt)} </small>
+                            <p class="card-text">${data.description}</p>
+                            <a class="btn btn-outline-primary btn-sm" href="${data.url}" target="_blank">View full coverage</a>
+                        </div>
+                </div>
+            </div>
+        </div>`;
+        }
+    );
+}
+
+/* <div class="headline-card my-3 card">                
                 <div class="card-body">
                     <h4 class="card-title my-0">${data.title}</h4>
                     <small class="text-muted">${data.source.name} | ${calculateTime(data.publishedAt)} </small>
                     <p class="card-text">${data.description}</p>
                     <a class="btn btn-outline-primary btn-sm" href="${data.url}" target="_blank">View full coverage</a>
                 </div>
-            </div>`;
-        }
-    );
-}
+            </div> */
 
-showCategory = () => {
-    for (category in categories) {
-        document.getElementById('category-container').innerHTML += `<button onclick="indianCategoryNews('${category}')" class="btn btn-outline-success btn-sm mx-1 my-1">${categories[category]}</button>`;
-    }
-}
 
-indianCategoryNews = (category) => {
-    document.getElementById('india-news-header').innerHTML = `Top ${category} stories - India`;
-    fetch(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=ad6415a1feba413a966465c21c3a2e83`)
-        .then(res => res.json())
-        .then(data => showNewsData(data.articles, 'india-news-container'))
-}
+
 
 showWeatherData = (data) => {
     document.getElementById('weather-container').innerHTML = `
-    <div class="headline-header my-2">
+    <div class="headline-header">
         <h5>Weather</h5>
         <div class="headline-card my-3 card" style="background-color: #F8F9FA;">
             <div class="card-body">
@@ -223,12 +270,9 @@ showWeatherData = (data) => {
     </div>`;
 }
 
-getAQI = (data) => {
-    console.log(data);
-    document.getElementById('aqi').innerHTML = `${data.list.main.aqi}`;
-}
+//Default-Function-Calls
 
 defaultIndiaNews();
 getLocation();
-setCountries();
+setOptions();
 showCategory();

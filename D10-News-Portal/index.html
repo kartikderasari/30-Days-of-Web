@@ -30,15 +30,16 @@
         <ul class="nav nav-pills my-1" id="pills-tab" role="tablist">
           <li class="nav-item" role="presentation">
             <a class="nav-link active" id="pills-india-tab" data-bs-toggle="pill" href="#pills-india" role="tab"
-              aria-controls="pills-india" aria-selected="true">India</a>
+              aria-controls="pills-india" aria-selected="true" onclick="defaultIndiaNews()">India</a>
           </li>
           <li class="nav-item" role="presentation">
             <a class="nav-link" id="pills-world-tab" data-bs-toggle="pill" href="#pills-world" role="tab"
-              aria-controls="pills-world" aria-selected="false">World</a>
+              aria-controls="pills-world" aria-selected="false" onclick="defaultWorld()">World</a>
           </li>
           <li class="nav-item" role="presentation">
             <a class="nav-link" id="pills-search-tab" data-bs-toggle="pill" href="#pills-search" role="tab"
-              aria-controls="pills-search" aria-selected="false">Search for Articles</a>
+              aria-controls="pills-search" aria-selected="false" onclick="defaultSearchForArticle()">Search for
+              Articles</a>
           </li>
           <li class="nav-item" role="presentation">
             <a class="nav-link" id="pills-about-tab" data-bs-toggle="pill" href="#pills-about" role="tab"
@@ -51,9 +52,11 @@
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-india" role="tabpanel" aria-labelledby="pills-india-tab">
         <div class="container-fluid wrapper-container">
+
           <div class="row mx-2">
+
             <div class="col-lg-9 col-md-8 col-sm-12">
-              <div class="headline-container my-4">
+              <div class="headline-container mt-4 mb-2">
                 <div class="headline-header">
                   <h5 id="india-news-header"></h5>
                 </div>
@@ -65,7 +68,7 @@
             <div class="col-lg-3 col-md-4 col-sm-12">
 
               <div class="row">
-                <div class="weather-container" id="weather-container" style="width: 100%;">
+                <div class="weather-container my-4" id="weather-container" style="width: 100%;">
                 </div>
               </div>
 
@@ -74,7 +77,7 @@
                   <h5>In the Indian news</h5>
                   <div class="headline-card my-3 card" style="background-color: #F8F9FA;">
                     <div class="card-body">
-                      <h6 class="card-title my-0" id="">Explore latest Indian news based on categories</h6>
+                      <h6 class="card-title my-0" id="">Explore latest news</h6>
                       <hr>
                       <p class="category" id="category-container">
                       </p>
@@ -82,8 +85,28 @@
                   </div>
                 </div>
               </div>
-            </div>
 
+              <div class="row">
+                <div class="headline-card my-2 card" style="background-color: #F8F9FA;">
+                  <div class="card-body">
+                    <h5 class="card-title">About News Flash</h5>
+                    <hr>
+                    <p class="card-text">News Flash is an Open-Source project, made with 🤎 by Kartik Derasari to help
+                      you
+                      stay
+                      updated with the latest news across the globe! We are supported by News API and Open Weather Map
+                      for
+                      weather updates and news articles.</p>
+                    <h5>How News Flash is made?</h5>
+                    <img class="mx-1 my-2" src="./images/web-logos/html.png" alt="" style="max-width: 40px;">
+                    <img class="mx-1 my-2" src="./images/web-logos/css.png" alt="" style="max-width: 40px;">
+                    <img class="mx-1 my-2" src="./images/web-logos/js.png" alt="" style="max-width: 40px;">
+                    <img class="mx-1 my-2" src="./images/web-logos/bt.png" alt="" style="max-width: 40px;">
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
@@ -100,7 +123,6 @@
                 <label class="input-group-text" for="countryGroupSelect">Country</label>
                 <select class="custom-select" id="countryGroupSelect">
                   <option value="default" selected>Choose a country</option>
-
                 </select>
               </div>
             </div>
@@ -138,13 +160,13 @@
             <div class="col-lg-12 my-2">
               <h3>News</h3>
               <p class="text-muted">Search for topics, location or keywords! </p>
-              <div class="input-group mb-3 col-lg-9">
+              <div class="input-group mb-3 col-lg-9 col-sm-12">
                 <span class="input-group-text" id="basic-addon1">News Articles</span>
                 <input type="text" id="searchArticlesInput" class="form-control"
                   placeholder="Search for topics, location or keywords" aria-label="Search Box"
                   aria-describedby="basic-addon1" value="">
               </div>
-              <div class="col-lg-9 text-center">
+              <div class="col-lg-9 col-sm-12 text-center">
                 <button class="btn btn-primary" onclick="searchArticles()">Search</button>
               </div>
             </div>
@@ -153,7 +175,7 @@
           <div class="row mx-2 my-2">
             <div class="col-lg-12 col-md-12 col-sm-12">
               <div class="headline-header">
-                <h5 id="searchHeader">Search for articles</h5>
+                <h5 id="searchHeader"></h5>
               </div>
               <div id="searchArticleContainer"></div>
             </div>
