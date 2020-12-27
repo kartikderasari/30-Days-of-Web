@@ -74,7 +74,7 @@ let categories = {
     technology: "Technology"
 }
 
-let baseURL = 'https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/';
+let baseURL = 'https://crossorigin.me/https://newsapi.org/v2/';
 
 //Functions-for-India
 
