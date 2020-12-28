@@ -29,7 +29,10 @@ function addTask() {
         };
         firebase.firestore().collection('tasks').add(newTaskObj);
     }
-    //showData();
+    let updateTime = new Date().getTime();
+    setInterval(() => {
+        document.getElementById('updateTime').innerHTML = calculateTime(updateTime);
+    }, 6000);
 }
 
 function showData() {
@@ -69,12 +72,22 @@ function updateStatus(task, id, status) {
         })
         .then(() => showData())
         .catch(e => console.log(e))
+
+    let updateTime = new Date().getTime();
+    setInterval(() => {
+        document.getElementById('updateTime').innerHTML = calculateTime(updateTime);
+    }, 6000);
 }
 
 function deleteTask(id) {
     firebase.firestore().collection('tasks').doc(id).delete().then(() => {
         console.log('Doc Removed');
     }).catch(e => consple.log(e))
+
+    let updateTime = new Date().getTime();
+    setInterval(() => {
+        document.getElementById('updateTime').innerHTML = calculateTime(updateTime);
+    }, 6000);
 }
 
 calculateTime = (updateTime) => {
