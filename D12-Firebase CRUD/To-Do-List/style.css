@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "Product Sans";
+  src: url("./fonts/ProductSans.ttf");
+}
+
+body {
+  font-family: "Product Sans", sans-serif;
+}
+
+.inputContainer {
+  width: 40%;
+}
+
+.taskContainer {
+  width: 50%;
+}
+
+.textContainer {
+  text-align: left;
+}
+
+.btnContainer {
+  text-align: end;
+}
+
+@media screen and (max-width: 992px) {
+  .inputContainer {
+    width: 90%;
+  }
+  .taskContainer {
+    width: 90%;
+  }
+  .textContainer {
+    text-align: center;
+    margin: 5px auto;
+  }
+  .btnContainer {
+    text-align: center;
+    margin: 5px auto;
+  }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Things to do!</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/c94427133a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="navbar-container">
+        <nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top bg-white">
+            <a class="navbar-brand mx-auto" href="#">
+                <h3 class="my-auto">Things to do!</h3>
+            </a>
+        </nav>
+    </div>
+
+    <div class="main-container">
+
+        <div class="card bg-light my-4 p-2 mx-auto inputContainer">
+            <div class="card-body">
+                <h5 class="card-title">Add a task</h5>
+                <div class="px-2 py-4 text-center">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="taskName">Task</span>
+                        <input type="text" class="form-control" placeholder="Enter task name" aria-label="Username"
+                            aria-describedby="taskName" id="taskInputField">
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="taskStatus">Status</label>
+                        <select class="form-select" id="taskStatus">
+                            <option value="default" selected>Choose status</option>
+                            <option value="ongoing">Ongoing</option>
+                            <option value="done">Done</option>
+                            <option value="abort">Abort</option>
+                        </select>
+                    </div>
+                    <button id="addTaskButton" class="btn btn-primary btn-sm">Add Task</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card bg-light my-4 p-2 mx-auto taskContainer">
+            <div class="card-body">
+                <h5 class="card-title">Tasks</h5>
+                <small id="updateTime">Last updated:</small>
+            </div>
+            <div class="row mx-2 align-items-center" id="tasks-container">
+            </div>
+        </div>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script src="index.js"></script>
+</body>
+
+</html>
