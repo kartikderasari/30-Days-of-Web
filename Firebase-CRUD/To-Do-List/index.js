@@ -26,13 +26,11 @@ function addTask() {
         let newTaskObj = {
             taskName: task,
             status: taskStatus,
+            timeStamp: new Date()
         };
         firebase.firestore().collection('tasks').add(newTaskObj);
     }
-    let updateTime = new Date().getTime();
-    setInterval(() => {
-        document.getElementById('updateTime').innerHTML = calculateTime(updateTime);
-    }, 6000);
+    showData();
 }
 
 function showData() {
@@ -44,6 +42,7 @@ function showData() {
                     `<hr class="my-1">
                 <div class="col-12 col-lg-5 col-md-5 col-sm-12 textContainer">
                     ${doc.data().taskName}
+                    <small id="updateTime" class="my-0 d-block text-muted">Last updated: Just now</small>
                 </div>
                 <div class="col-12 col-lg-7 col-md-7 col-sm-12 btnContainer">
                     <button class="btn m-1 btn-outline-primary btn-sm" id="${doc.id}.ongoing" onclick="updateStatus('${doc.data().taskName}','${doc.id}','ongoing')">Ongoing</button>
@@ -52,13 +51,11 @@ function showData() {
                     <span class="fas fa-times-circle" onclick="deleteTask('${doc.id}')"></span>
                 </div>`;
                 document.getElementById(`${doc.id}.${doc.data().status}`).disabled = true;
+                document.getElementById(`${doc.id}.${doc.data().status}`).classList.remove('btn-outline-*');
+                //document.getElementById(`${doc.id}.${doc.data().status}`).classList.add(`btn-${doc.data().status}`);
             });
         }
     );
-    let updateTime = new Date().getTime();
-    setInterval(() => {
-        document.getElementById('updateTime').innerHTML = calculateTime(updateTime);
-    }, 6000);
 }
 
 function updateStatus(task, id, status) {
@@ -72,22 +69,10 @@ function updateStatus(task, id, status) {
         })
         .then(() => showData())
         .catch(e => console.log(e))
-
-    let updateTime = new Date().getTime();
-    setInterval(() => {
-        document.getElementById('updateTime').innerHTML = calculateTime(updateTime);
-    }, 6000);
 }
 
 function deleteTask(id) {
-    firebase.firestore().collection('tasks').doc(id).delete().then(() => {
-        console.log('Doc Removed');
-    }).catch(e => consple.log(e))
-
-    let updateTime = new Date().getTime();
-    setInterval(() => {
-        document.getElementById('updateTime').innerHTML = calculateTime(updateTime);
-    }, 6000);
+    firebase.firestore().collection('tasks').doc(id).delete().then(() => { showData(); }).catch(e => console.log(e))
 }
 
 calculateTime = (updateTime) => {
@@ -101,7 +86,8 @@ calculateTime = (updateTime) => {
     let result;
 
     if (hours == 0 && minutes == 0 && seconds <= 60) {
-        result = 'Last updated: Just now';
+        //result = 'Last updated: Just now';
+        result = `Last updated ${seconds} seconds ago`;
         return result;
     }
     else {
@@ -112,7 +98,8 @@ calculateTime = (updateTime) => {
         }
         if (minutes == 0) {
             minutes = '';
-        } else minutes = minutes + ' minutes';
+        } else if (minutes == 1) minutes = minutes + ' minute';
+        else minutes = minutes + ' minutes';
 
         result = `Last updated: ${hours}  ${minutes} ago`;
         return result;

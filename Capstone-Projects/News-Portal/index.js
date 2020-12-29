@@ -74,15 +74,31 @@ let categories = {
     technology: "Technology"
 }
 
-let baseURL = 'https://crossorigin.me/https://newsapi.org/v2/';
+let baseURL = 'https://newsapi.org/v2/';
 
 //Functions-for-India
 
 defaultIndiaNews = () => {
+
+    var url = 'http://newsapi.org/v2/top-headlines?' +
+        'country=in&' +
+        'apiKey=ad6415a1feba413a966465c21c3a2e83';
+    var req = new Request(url);
+    fetch(req, {
+        headers: {
+            'Access-Control-Allow-Origin': '*'
+        }
+    })
+        .then(function (response) {
+            console.log(response.json());
+        })
+
+    /* let urlToUse = baseURL + 'top-headlines?country=in&apiKey=ad6415a1feba413a966465c21c3a2e83';
+    console.log(urlToUse);
     document.getElementById('india-news-header').innerHTML = 'Top stories - India';
-    fetch(baseURL + 'top-headlines?country=in&apiKey=ad6415a1feba413a966465c21c3a2e83')
+    fetch(urlToUse)
         .then(res => res.json())
-        .then(data => showNewsData(data.articles, 'india-news-container'))
+        .then(data => showNewsData(data.articles, 'india-news-container')) */
 }
 
 showCategory = () => {

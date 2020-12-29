@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+#printable {
+  font-family: "Open Sans", sans-serif;
+  margin: 20px auto;
+  padding: 20px;
+  border: 0.5px solid rgb(221, 197, 197);
+  box-shadow: 3px 3px rgb(179, 157, 157);
+  width: 70%;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#expContent {
+  text-align: justify;
+}
+
+#expContent p {
+  margin: 5px 0;
+}
+
+.subheader {
+  margin: 0;
+  margin-top: 10px;
+}
+
+.subcontent table {
+  width: 100%;
+}
+th {
+  text-align: left;
+}
+
+@media print {
+  #printable {
+    display: block;
+    width: 95%;
+    margin: 0;
+    border: 0;
+    box-shadow: 0 0 #fff;
+  }
+  #nonPrintable {
+    display: none;
+  }
+}
