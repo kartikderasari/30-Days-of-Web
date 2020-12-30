@@ -26,7 +26,7 @@ function addTask() {
         let newTaskObj = {
             taskName: task,
             status: taskStatus,
-            timeStamp: new Date()
+            timeStamp: Date.now()
         };
         firebase.firestore().collection('tasks').add(newTaskObj);
     }
@@ -42,7 +42,7 @@ function showData() {
                     `<hr class="my-1">
                 <div class="col-12 col-lg-5 col-md-5 col-sm-12 textContainer">
                     ${doc.data().taskName}
-                    <small id="updateTime" class="my-0 d-block text-muted">Last updated: Just now</small>
+                    <small id="updateTime" class="my-0 d-block text-muted">Last updated: ${new Date(doc.data().timeStamp).toLocaleString()}</small>
                 </div>
                 <div class="col-12 col-lg-7 col-md-7 col-sm-12 btnContainer">
                     <button class="btn m-1 btn-outline-primary btn-sm" id="${doc.id}.ongoing" onclick="updateStatus('${doc.data().taskName}','${doc.id}','ongoing')">Ongoing</button>
@@ -51,7 +51,7 @@ function showData() {
                     <span class="fas fa-times-circle" onclick="deleteTask('${doc.id}')"></span>
                 </div>`;
                 document.getElementById(`${doc.id}.${doc.data().status}`).disabled = true;
-                document.getElementById(`${doc.id}.${doc.data().status}`).classList.remove('btn-outline-*');
+                //document.getElementById(`${doc.id}.${doc.data().status}`).classList.remove('btn-outline-*');
                 //document.getElementById(`${doc.id}.${doc.data().status}`).classList.add(`btn-${doc.data().status}`);
             });
         }
