@@ -1,12 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
-
 body {
-  font-family: "Open Sans", sans-serif;
+  margin: 0 auto;
+  color: #616161;
+  text-align: center;
+}
+
+.navbar {
+  border-bottom: 1px solid #dadce0;
+  background-color: white;
+  box-shadow: 1px 3px 3px #ccbdbd;
+}
+
+.nav-heading {
+  margin: 20px;
+  font-size: 22px;
+  font-weight: 500;
 }
 
 .container {
   text-align: center;
-  width: 100%;
+  width: 90%;
+  margin: 20px auto;
 }
 
 .newsContainer {

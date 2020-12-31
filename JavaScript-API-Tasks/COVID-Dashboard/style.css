@@ -1,13 +1,31 @@
+body {
+  margin: 0;
+  color: #616161;
+}
+
+.navbar {
+  border-bottom: 1px solid #dadce0;
+  background-color: white;
+  box-shadow: 1px 3px 3px #ccbdbd;
+}
+
+.nav-heading {
+  margin: 20px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
 .container {
   text-align: center;
 }
 
 .globalContainer {
+  width: 70%;
   text-align: center;
   border: 1px solid rgb(220, 204, 204);
   border-radius: 5px;
   padding: 10px;
-  margin: 10px 30px;
+  margin: 20px auto;
   box-shadow: 2px 2px rgb(171, 143, 143);
 }
 .countryContainer {

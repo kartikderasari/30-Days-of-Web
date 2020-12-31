@@ -1,15 +1,27 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
-
 body {
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  color: #616161;
+}
+
+.navbar {
+  border-bottom: 1px solid #dadce0;
+  background-color: white;
+  box-shadow: 1px 3px 3px #ccbdbd;
+}
+
+.nav-heading {
+  margin: 20px;
+  font-size: 22px;
+  font-weight: 500;
 }
 
 .main-container {
   display: flex;
   flex-flow: wrap;
   border: 0.05px solid rgb(211, 197, 197);
-  margin: auto 20px;
+  width: 90%;
+  margin: 20px auto;
   border-radius: 10px;
   justify-content: center;
 }
@@ -20,6 +32,7 @@ body {
   padding: 20px;
   min-width: 200px;
   margin: 20px;
+  background-color: #eff1f7;
 }
 
 .profile-card:hover {
