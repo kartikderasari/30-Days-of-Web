@@ -7,17 +7,17 @@
 
 ## Assignments based on VanillaJS
 
-|  #  |                                   Assignment                                    |   Live Demo   |
-| :-: | :-----------------------------------------------------------------------------: | :-----------: |
-|  1  | [Academic Calculator](/tree/main/JavaScript/JS-Assignments/Academic-Calculator) | [Live Demo]() |
-|  2  |                               [User Directory]()                                | [Live Demo]() |
-|  3  |                              [Contact Directory]()                              | [Live Demo]() |
-|  4  |                               [User Directory]()                                | [Live Demo]() |
-|  5  |                                 [To-Do List]()                                  | [Live Demo]() |
-|  6  |                                   [Resume]()                                    | [Live Demo]() |
-|  7  |                              [Resume Generator]()                               | [Live Demo]() |
-|  8  |                                [Local Storage]()                                | [Live Demo]() |
-|  9  |                     [Contact Directory w/ Local Storage]()                      | [Live Demo]() |
+|  #  |                         Assignment                         |   Live Demo   |
+| :-: | :--------------------------------------------------------: | :-----------: |
+|  1  | [Academic Calculator](/JS-Assignments/Academic-Calculator) | [Live Demo]() |
+|  2  |                     [User Directory]()                     | [Live Demo]() |
+|  3  |                   [Contact Directory]()                    | [Live Demo]() |
+|  4  |                     [User Directory]()                     | [Live Demo]() |
+|  5  |                       [To-Do List]()                       | [Live Demo]() |
+|  6  |                         [Resume]()                         | [Live Demo]() |
+|  7  |                    [Resume Generator]()                    | [Live Demo]() |
+|  8  |                     [Local Storage]()                      | [Live Demo]() |
+|  9  |           [Contact Directory w/ Local Storage]()           | [Live Demo]() |
 
 ## Assignments based on VanillaJS w/ External APIs
 
