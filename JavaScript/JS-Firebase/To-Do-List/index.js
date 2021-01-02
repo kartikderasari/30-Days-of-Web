@@ -1,4 +1,8 @@
 let calculateTime;
+let addTask;
+let showData;
+let updateStatus;
+let deleteTask;
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -12,9 +16,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-document.getElementById('addTaskButton').addEventListener("click", addTask);
-
-function addTask() {
+addTask = () => {
     let task = document.getElementById('taskInputField').value;
     let taskStatus = document.getElementById('taskStatus').value;
     document.getElementById('taskInputField').value = "";
@@ -33,7 +35,7 @@ function addTask() {
     showData();
 }
 
-function showData() {
+showData = () => {
     firebase.firestore().collection('tasks').onSnapshot(
         docs => {
             document.getElementById('tasks-container').innerHTML = '';
@@ -51,27 +53,35 @@ function showData() {
                     <span class="fas fa-times-circle" onclick="deleteTask('${doc.id}')"></span>
                 </div>`;
                 document.getElementById(`${doc.id}.${doc.data().status}`).disabled = true;
-                //document.getElementById(`${doc.id}.${doc.data().status}`).classList.remove('btn-outline-*');
-                //document.getElementById(`${doc.id}.${doc.data().status}`).classList.add(`btn-${doc.data().status}`);
+                if (doc.data().status == 'ongoing') {
+                    document.getElementById(`${doc.id}.${doc.data().status}`).classList.remove('btn-outline-primary');
+                    document.getElementById(`${doc.id}.${doc.data().status}`).classList.add('btn-primary');
+                }
+                else if (doc.data().status == 'done') {
+                    document.getElementById(`${doc.id}.${doc.data().status}`).classList.remove('btn-outline-success');
+                    document.getElementById(`${doc.id}.${doc.data().status}`).classList.add('btn-success');
+                }
+                else if (doc.data().status == 'abort') {
+                    document.getElementById(`${doc.id}.${doc.data().status}`).classList.remove('btn-outline-danger');
+                    document.getElementById(`${doc.id}.${doc.data().status}`).classList.add('btn-danger');
+                }
             });
         }
     );
 }
 
-function updateStatus(task, id, status) {
+updateStatus = (task, id, status) => {
     let updatedTask = {
         taskName: task,
         status: status,
+        timeStamp: Date.now()
     }
     firebase.firestore().collection('tasks').doc(id).update(updatedTask)
-        .then(() => {
-            console.log('Doc updated');
-        })
         .then(() => showData())
         .catch(e => console.log(e))
 }
 
-function deleteTask(id) {
+deleteTask = (id) => {
     firebase.firestore().collection('tasks').doc(id).delete().then(() => { showData(); }).catch(e => console.log(e))
 }
 
@@ -82,9 +92,7 @@ calculateTime = (updateTime) => {
         seconds = Math.floor((timeInMS / 1000) % 60),
         minutes = Math.floor((timeInMS / (1000 * 60)) % 60),
         hours = Math.floor((timeInMS / (1000 * 60 * 60)) % 24);
-
     let result;
-
     if (hours == 0 && minutes == 0 && seconds <= 60) {
         //result = 'Last updated: Just now';
         result = `Last updated ${seconds} seconds ago`;
@@ -100,10 +108,10 @@ calculateTime = (updateTime) => {
             minutes = '';
         } else if (minutes == 1) minutes = minutes + ' minute';
         else minutes = minutes + ' minutes';
-
         result = `Last updated: ${hours}  ${minutes} ago`;
         return result;
     }
 }
 
+document.getElementById('addTaskButton').addEventListener("click", addTask);
 showData();
