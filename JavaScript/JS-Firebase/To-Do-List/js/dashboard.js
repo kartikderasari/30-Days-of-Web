@@ -4,7 +4,45 @@ let showData;
 let updateStatus;
 let deleteTask;
 
+checkState = () => {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            // User is signed in.
+            var displayName = user.displayName;
+            var email = user.email;
+            var emailVerified = user.emailVerified;
+            var photoURL = user.photoURL;
+            var isAnonymous = user.isAnonymous;
+            var uid = user.uid;
+            var providerData = user.providerData;
+            // ...
+            //Object.assign(userData, user);
+            showData(user);
+        } else {
+            // User is signed out.
+            // ...
+            window.location.href = "./index.html";
+        }
+    });
+}
+function logoutUser() {
+    firebase
+        .auth()
+        .signOut()
+        .then(function () {
+            // Sign-out successful.
+            console.log('User logged out');
+            window.location.href = "./index.html";
+        })
+        .catch(function (error) {
+            console.log(error);
+            // An error happened.
+        });
+}
+
 addTask = () => {
+    let user = firebase.auth().currentUser;
+    console.log(user);
     let task = document.getElementById('taskInputField').value;
     let taskStatus = document.getElementById('taskStatus').value;
     document.getElementById('taskInputField').value = "";
@@ -18,13 +56,14 @@ addTask = () => {
             status: taskStatus,
             timeStamp: Date.now()
         };
-        firebase.firestore().collection('tasks').add(newTaskObj);
+        firebase.firestore().collection('edata').doc(user.uid).collection('todoData').add(newTaskObj);
     }
-    showData();
+    showData(user);
 }
 
-showData = () => {
-    firebase.firestore().collection('tasks').onSnapshot(
+showData = (user) => {
+    console.log(user.uid);
+    firebase.firestore().collection('edata').doc(user.uid).collection('todoData').onSnapshot(
         docs => {
             document.getElementById('tasks-container').innerHTML = '';
             docs.forEach(doc => {
@@ -55,22 +94,24 @@ showData = () => {
                 }
             });
         }
-    );
+    )
 }
 
 updateStatus = (task, id, status) => {
+    let user = firebase.auth().currentUser;
     let updatedTask = {
         taskName: task,
         status: status,
         timeStamp: Date.now()
     }
-    firebase.firestore().collection('tasks').doc(id).update(updatedTask)
-        .then(() => showData())
+    firebase.firestore().collection('edata').doc(user.uid).collection('todoData').doc(id).update(updatedTask)
+        .then(() => showData(user))
         .catch(e => console.log(e))
 }
 
 deleteTask = (id) => {
-    firebase.firestore().collection('tasks').doc(id).delete().then(() => { showData(); }).catch(e => console.log(e))
+    let user = firebase.auth().currentUser;
+    firebase.firestore().collection('edata').doc(user.uid).collection('todoData').doc(id).delete().then(() => { showData(user); }).catch(e => console.log(e))
 }
 
 calculateTime = (updateTime) => {
@@ -102,4 +143,4 @@ calculateTime = (updateTime) => {
 }
 
 document.getElementById('addTaskButton').addEventListener("click", addTask);
-showData();
+checkState();
