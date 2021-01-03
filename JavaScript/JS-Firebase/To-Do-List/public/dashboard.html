@@ -9,8 +9,12 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
     <!-- CSS only -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/c94427133a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -29,11 +33,15 @@
         </nav>
     </div>
 
+    <div id="toast-container">
+
+    </div>
+
     <div class="main-container">
         <div class="card bg-light shadow-sm my-4 p-2 mx-auto inputContainer">
             <div class="card-body">
                 <h5 class="card-title">Add a task</h5>
-                <div class="px-2 py-4 text-center">
+                <div class="px-3 py-2 text-center">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="taskName">Task</span>
                         <input type="text" class="form-control" placeholder="Enter task name" aria-label="Username"
@@ -55,9 +63,9 @@
 
         <div class="card bg-light my-4 shadow-sm p-2 mx-auto taskContainer">
             <div class="card-body">
-                <h5 class="card-title">Tasks</h5>
+                <h5 class="card-title my-0">Tasks</h5>
             </div>
-            <div class="row mx-2 align-items-center" id="tasks-container">
+            <div class="row mx-2 align-items-center my-0" id="tasks-container">
             </div>
         </div>
     </div>

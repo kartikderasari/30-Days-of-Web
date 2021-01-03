@@ -1,0 +1,28 @@
+[debug] [2021-01-03T12:53:28.154Z] ----------------------------------------------------------------------
+[debug] [2021-01-03T12:53:28.156Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Kartik Derasari\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2021-01-03T12:53:28.156Z] CLI Version:   9.1.0
+[debug] [2021-01-03T12:53:28.156Z] Platform:      win32
+[debug] [2021-01-03T12:53:28.156Z] Node Version:  v12.14.1
+[debug] [2021-01-03T12:53:28.157Z] Time:          Sun Jan 03 2021 18:23:28 GMT+0530 (India Standard Time)
+[debug] [2021-01-03T12:53:28.157Z] ----------------------------------------------------------------------
+[debug] [2021-01-03T12:53:28.158Z] 
+[debug] [2021-01-03T12:53:28.165Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-01-03T12:53:28.166Z] > authorizing via signed-in user
+[debug] [2021-01-03T12:53:28.166Z] [iam] checking project fir-crud-ac1a2 for permissions ["firebase.projects.get"]
+[debug] [2021-01-03T12:53:28.169Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-crud-ac1a2:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2021-01-03T12:53:29.875Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 03 Jan 2021 12:53:29 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1445","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-01-03T12:53:29.876Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/fir-crud-ac1a2  
+ 
+[debug] [2021-01-03T12:53:30.392Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 03 Jan 2021 12:53:30 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from 'C:\Users\Kartik Derasari\Desktop\Code Repo\30-Days-of-Web\JavaScript\JS-Firebase\To-Do-List'...
+[info] 
+[debug] [2021-01-03T12:53:30.397Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/fir-crud-ac1a2/webApps/-/config  
+ 
+[debug] [2021-01-03T12:53:31.789Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 03 Jan 2021 12:53:31 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[info] i  hosting: 127.0.0.1 - - [03/Jan/2021:12:53:34 +0000] "GET /dashboard.html HTTP/1.1" 200 4040 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [03/Jan/2021:12:53:34 +0000] \"GET /dashboard.html HTTP/1.1\" 200 4040 \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [03/Jan/2021:12:53:35 +0000] "GET /js/dashboard.js HTTP/1.1" 200 7490 "http://localhost:5000/dashboard.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [03/Jan/2021:12:53:35 +0000] \"GET /js/dashboard.js HTTP/1.1\" 200 7490 \"http://localhost:5000/dashboard.html\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [03/Jan/2021:12:53:35 +0000] "GET /img/favicon-32x32.png HTTP/1.1" 200 1010 "http://localhost:5000/dashboard.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [03/Jan/2021:12:53:35 +0000] \"GET /img/favicon-32x32.png HTTP/1.1\" 200 1010 \"http://localhost:5000/dashboard.html\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36\""}}

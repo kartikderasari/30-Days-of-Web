@@ -3,6 +3,8 @@ let addTask;
 let showData;
 let updateStatus;
 let deleteTask;
+let logoutUser;
+let showToast;
 
 checkState = () => {
     firebase.auth().onAuthStateChanged(function (user) {
@@ -15,8 +17,7 @@ checkState = () => {
             var isAnonymous = user.isAnonymous;
             var uid = user.uid;
             var providerData = user.providerData;
-            // ...
-            //Object.assign(userData, user);
+            // ...            
             showData(user);
         } else {
             // User is signed out.
@@ -25,7 +26,8 @@ checkState = () => {
         }
     });
 }
-function logoutUser() {
+
+logoutUser = () => {
     firebase
         .auth()
         .signOut()
@@ -42,7 +44,6 @@ function logoutUser() {
 
 addTask = () => {
     let user = firebase.auth().currentUser;
-    console.log(user);
     let task = document.getElementById('taskInputField').value;
     let taskStatus = document.getElementById('taskStatus').value;
     document.getElementById('taskInputField').value = "";
@@ -56,13 +57,13 @@ addTask = () => {
             status: taskStatus,
             timeStamp: Date.now()
         };
-        firebase.firestore().collection('edata').doc(user.uid).collection('todoData').add(newTaskObj);
+        firebase.firestore().collection('edata').doc(user.uid).collection('todoData').add(newTaskObj)
+            .then(() => showData(user))
+            .then(() => showToast('Task added', `${newTaskObj.taskName} has been added successfully!`))
     }
-    showData(user);
 }
 
 showData = (user) => {
-    console.log(user.uid);
     firebase.firestore().collection('edata').doc(user.uid).collection('todoData').onSnapshot(
         docs => {
             document.getElementById('tasks-container').innerHTML = '';
@@ -106,12 +107,16 @@ updateStatus = (task, id, status) => {
     }
     firebase.firestore().collection('edata').doc(user.uid).collection('todoData').doc(id).update(updatedTask)
         .then(() => showData(user))
+        .then(() => showToast('Task status updated', `${updatedTask.taskName} status has been set to ${updatedTask.status}!`))
         .catch(e => console.log(e))
 }
 
 deleteTask = (id) => {
     let user = firebase.auth().currentUser;
-    firebase.firestore().collection('edata').doc(user.uid).collection('todoData').doc(id).delete().then(() => { showData(user); }).catch(e => console.log(e))
+    firebase.firestore().collection('edata').doc(user.uid).collection('todoData').doc(id).delete()
+        .then(() => { showData(user) })
+        .then(() => showToast('Task deleted', 'Task has been removed successfully'))
+        .catch(e => console.log(e))
 }
 
 calculateTime = (updateTime) => {
@@ -140,6 +145,34 @@ calculateTime = (updateTime) => {
         result = `Last updated: ${hours}  ${minutes} ago`;
         return result;
     }
+}
+
+{/* <div class="toast-header bg-light">
+    <strong class="me-auto">${heading}</strong>
+    <button type="button" class="btn-close btn-close-primary ms-auto me-2 mt-auto"
+        data-bs-dismiss="toast" aria-label="Close"></button>
+</div> */}
+
+showToast = (heading, text) => {
+
+    $(document).ready(function () {
+        $('.toast').toast('show');
+    });
+
+    document.getElementById('toast-container').innerHTML = `
+    <div class="toast-container position-absolute p-3 top-3 end-0" id="toastPlacement"  style="z-index: 1070;">
+                <div class="toast shadow-bg border-0" style="width: auto;">
+                    <div class="toast-header text-primary bg-light">
+                        <strong class="me-auto">${heading}</strong>
+                        <button type="button" class="btn-close btn-close-primary ms-auto me-2 mt-auto"
+                            data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        ${text}                    
+                    </div>
+                </div>
+            </div>
+    `;
 }
 
 document.getElementById('addTaskButton').addEventListener("click", addTask);
