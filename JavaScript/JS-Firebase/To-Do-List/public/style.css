@@ -7,35 +7,12 @@ body {
   font-family: "Product Sans", sans-serif;
 }
 
-.inputContainer {
-  width: 40%;
-}
-
-.taskContainer {
-  width: 50%;
-}
-
-.textContainer {
-  text-align: left;
-}
-
-.btnContainer {
-  text-align: end;
+.taskCard {
+  width: 25%;
 }
 
 @media screen and (max-width: 992px) {
-  .inputContainer {
+  .taskCard {
     width: 90%;
-  }
-  .taskContainer {
-    width: 90%;
-  }
-  .textContainer {
-    text-align: center;
-    margin: 5px auto;
-  }
-  .btnContainer {
-    text-align: center;
-    margin: 5px auto;
   }
 }

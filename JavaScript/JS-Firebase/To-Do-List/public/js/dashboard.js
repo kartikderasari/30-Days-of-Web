@@ -1,10 +1,14 @@
-let calculateTime;
 let addTask;
 let showData;
 let updateStatus;
 let deleteTask;
 let logoutUser;
 let showToast;
+
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl)
+})
 
 checkState = () => {
     firebase.auth().onAuthStateChanged(function (user) {
@@ -17,7 +21,8 @@ checkState = () => {
             var isAnonymous = user.isAnonymous;
             var uid = user.uid;
             var providerData = user.providerData;
-            // ...            
+            // ...     
+            setUserData(user);
             showData(user);
         } else {
             // User is signed out.
@@ -28,6 +33,7 @@ checkState = () => {
 }
 
 logoutUser = () => {
+    console.log('Log out user');
     firebase
         .auth()
         .signOut()
@@ -42,44 +48,131 @@ logoutUser = () => {
         });
 }
 
+function setUserData(user) {
+    document.getElementById('userAction').setAttribute("src", `${user.photoURL}`);
+    console.log(user);
+    let ele = `
+                <li>
+                    <h5 class="mx-2 my-1">${user.displayName}</h5>
+                    <p class="mx-2 my-1"><small class="d-block">${user.email}</small></p>
+                </li>                
+                <li><button class="btn btn-primary btn-sm mt-2 mb-1 mx-auto" id="logoutButton"
+                        onClick="logoutUser()">Logout</button></li>
+    `;
+    document.getElementById('userContent').innerHTML = ele;
+}
+
+
+
 addTask = () => {
+    document.getElementById('addTaskSpinner').style.display = 'inline-block';
     let user = firebase.auth().currentUser;
     let task = document.getElementById('taskInputField').value;
     let taskStatus = document.getElementById('taskStatus').value;
+    let taskNotes = document.getElementById('taskNotes').value;
+
     document.getElementById('taskInputField').value = "";
     document.getElementById('taskStatus').value = "default";
+    document.getElementById('taskNotes').value = "";
 
     if (task == "" || taskStatus == 'default') {
         alert('Enter some text to add a task!');
     } else {
         let newTaskObj = {
-            taskName: task,
+            name: task,
             status: taskStatus,
+            notes: taskNotes,
             timeStamp: Date.now()
         };
         firebase.firestore().collection('edata').doc(user.uid).collection('todoData').add(newTaskObj)
             .then(() => showData(user))
-            .then(() => showToast('Task added', `${newTaskObj.taskName} has been added successfully!`))
+            .then(() => showToast('Task added', `<span class="badge bg-primary">${newTaskObj.name}</span> has been added successfully!`))
     }
+    document.getElementById('addTaskSpinner').style.display = 'none';
+}
+
+let summary = (text, length, doc) => {
+    if (text.length >= length) {
+        let x = text.substring(0, length) + showModal(doc.id, doc.data());
+        return x;
+    }
+    else {
+        return text;
+    }
+}
+
+let updateSummary = (text, length) => {
+    if (text.length >= length) {
+        let x = text.substring(0, length) + '...';
+        return x;
+    }
+    else {
+        return text;
+    }
+}
+
+showModal = (id, data) => {
+    let ele = `
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-link px-0 mx-0 btn-lg" data-bs-toggle="modal" data-bs-target="#${CSS.escape(id)}">...
+    </button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="${id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">${data.name}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ${data.notes}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>            
+          </div>
+        </div>
+      </div>
+    </div>
+        `;
+    return ele;
 }
 
 showData = (user) => {
     firebase.firestore().collection('edata').doc(user.uid).collection('todoData').onSnapshot(
         docs => {
+            let i = 0;
             document.getElementById('tasks-container').innerHTML = '';
             docs.forEach(doc => {
                 document.getElementById('tasks-container').innerHTML +=
-                    `<hr class="my-1">
-                <div class="col-12 col-lg-5 col-md-5 col-sm-12 textContainer">
-                    ${doc.data().taskName}
-                    <small id="updateTime" class="my-0 d-block text-muted">Last updated: ${new Date(doc.data().timeStamp).toLocaleString()}</small>
+                    `
+        <div class="col-md-4 my-3" >
+            <div class="card">
+                <div class="card-body">
+                    <p style="font-size: 120%;" class="card-title my-1">${summary(doc.data().name, 20, doc)}
+                    </p>
+                    <p class="card-text">${summary(doc.data().notes, 150, doc)}</p>
                 </div>
-                <div class="col-12 col-lg-7 col-md-7 col-sm-12 btnContainer">
-                    <button class="btn m-1 btn-outline-primary btn-sm" id="${doc.id}.ongoing" onclick="updateStatus('${doc.data().taskName}','${doc.id}','ongoing')">Ongoing</button>
-                    <button class="btn m-1 btn-outline-success btn-sm" id="${doc.id}.done" onclick="updateStatus('${doc.data().taskName}','${doc.id}','done')">Done</button>
-                    <button class="btn m-1 btn-outline-danger btn-sm" id="${doc.id}.abort" onclick="updateStatus('${doc.data().taskName}','${doc.id}','abort')">Abort</button>
-                    <span class="fas fa-times-circle" onclick="deleteTask('${doc.id}')"></span>
-                </div>`;
+                <div class="text-center my-1">
+                    <button class="btn m-1 btn-outline-primary btn-sm" id="${doc.id}.ongoing"
+                        onclick="updateStatus('${doc.data().name}','${doc.id}', '${doc.data().notes}', 'ongoing')">Ongoing</button>
+                    <button class="btn m-1 btn-outline-success btn-sm" id="${doc.id}.done"
+                        onclick="updateStatus('${doc.data().name}','${doc.id}', '${doc.data().notes}', 'done')">Done</button>
+                    <button class="btn m-1 btn-outline-danger btn-sm" id="${doc.id}.abort"
+                        onclick="updateStatus('${doc.data().name}','${doc.id}', '${doc.data().notes}', 'abort')">Abort</button>
+                </div>
+                <div>
+                    <small id="updateTime" class=" mx-3 my-3 text-muted">Last updated: ${new
+                        Date(doc.data().timeStamp).toLocaleString()}</small>
+                </div>
+                <div class="text-muted text-center p-1 border-top">
+                    <button type="button" class="btn btn-sm text-danger" onclick="deleteTask('${doc.id}')"
+                        aria-label="Close">Delete</button>
+                </div>
+            </div>
+        </div>
+        `;
+                i++;
                 document.getElementById(`${doc.id}.${doc.data().status}`).disabled = true;
                 if (doc.data().status == 'ongoing') {
                     document.getElementById(`${doc.id}.${doc.data().status}`).classList.remove('btn-outline-primary');
@@ -98,60 +191,29 @@ showData = (user) => {
     )
 }
 
-updateStatus = (task, id, status) => {
+updateStatus = (task, id, taskNotes, status) => {
     let user = firebase.auth().currentUser;
     let updatedTask = {
-        taskName: task,
+        name: task,
         status: status,
+        notes: taskNotes,
         timeStamp: Date.now()
     }
     firebase.firestore().collection('edata').doc(user.uid).collection('todoData').doc(id).update(updatedTask)
         .then(() => showData(user))
-        .then(() => showToast('Task status updated', `${updatedTask.taskName} status has been set to ${updatedTask.status}!`))
+        .then(() => showToast('Task Status updated', `<b style = "color: #00e676;"> ${updateSummary(updatedTask.name, 15)}</b> Status has been set to ${updatedTask.status} !`))
         .catch(e => console.log(e))
 }
 
 deleteTask = (id) => {
-    let user = firebase.auth().currentUser;
-    firebase.firestore().collection('edata').doc(user.uid).collection('todoData').doc(id).delete()
-        .then(() => { showData(user) })
-        .then(() => showToast('Task deleted', 'Task has been removed successfully'))
-        .catch(e => console.log(e))
-}
-
-calculateTime = (updateTime) => {
-    let currentTime = new Date().getTime();
-    let timeInMS = currentTime - updateTime;
-    let milliseconds = parseInt((timeInMS % 1000) / 100),
-        seconds = Math.floor((timeInMS / 1000) % 60),
-        minutes = Math.floor((timeInMS / (1000 * 60)) % 60),
-        hours = Math.floor((timeInMS / (1000 * 60 * 60)) % 24);
-    let result;
-    if (hours == 0 && minutes == 0 && seconds <= 60) {
-        //result = 'Last updated: Just now';
-        result = `Last updated ${seconds} seconds ago`;
-        return result;
-    }
-    else {
-        if (hours == 0) {
-            hours = '';
-        } else {
-            hours = hours + ' hours';
-        }
-        if (minutes == 0) {
-            minutes = '';
-        } else if (minutes == 1) minutes = minutes + ' minute';
-        else minutes = minutes + ' minutes';
-        result = `Last updated: ${hours}  ${minutes} ago`;
-        return result;
+    if (confirm('Do you wish to delete the task?')) {
+        let user = firebase.auth().currentUser;
+        firebase.firestore().collection('edata').doc(user.uid).collection('todoData').doc(id).delete()
+            .then(() => { showData(user) })
+            .then(() => showToast('Task deleted', 'Task has been removed successfully'))
+            .catch(e => console.log(e))
     }
 }
-
-{/* <div class="toast-header bg-light">
-    <strong class="me-auto">${heading}</strong>
-    <button type="button" class="btn-close btn-close-primary ms-auto me-2 mt-auto"
-        data-bs-dismiss="toast" aria-label="Close"></button>
-</div> */}
 
 showToast = (heading, text) => {
 
@@ -160,20 +222,17 @@ showToast = (heading, text) => {
     });
 
     document.getElementById('toast-container').innerHTML = `
-    <div class="toast-container position-absolute p-3 top-3 end-0" id="toastPlacement"  style="z-index: 1070;">
-                <div class="toast shadow-bg border-0" style="width: auto;">
-                    <div class="toast-header text-primary bg-light">
-                        <strong class="me-auto">${heading}</strong>
-                        <button type="button" class="btn-close btn-close-primary ms-auto me-2 mt-auto"
-                            data-bs-dismiss="toast" aria-label="Close"></button>
-                    </div>
-                    <div class="toast-body">
-                        ${text}                    
-                    </div>
+        <div class="toast-container position-absolute p-3 bottom-0 start-50 translate-middle-x" id = "toastPlacement"  style = "z-index: 1070;" >
+            <div class="toast shadow-sm text-white" style="width: auto; background-color: #424242;">
+                <div class="toast-body">
+                    ${text}
+                    <button type="button" class="btn-close btn-close-white ms-auto me-2 mt-auto"
+                        data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
             </div>
-    `;
+        </div>
+        `;
 }
 
-document.getElementById('addTaskButton').addEventListener("click", addTask);
 checkState();
+document.getElementById('addTaskButton').addEventListener("click", addTask);

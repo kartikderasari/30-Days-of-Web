@@ -11,7 +11,6 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/c94427133a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -23,8 +22,18 @@
                 <div class="my-3">
                     <h3>Things to do!</h3>
                     <h6>A simple solution to help you manage your tasks ✔ </h6>
-                    <button id="loginButton" class="btn btn-primary btn-sm mt-4" onclick="googleLogin()"> Sign in with
-                        Google</button>
+                    <button id="loginButton" class="btn btn-primary btn-sm mt-4" onclick="googleLogin()">
+                        <span id="loginSpinner" style="display: none;" class="spinner-border spinner-border-sm mx-1"
+                            role="status" aria-hidden="true"></span>
+                        Sign in with
+                        Google
+                    </button>
+                    <button id="redirectButton" class="btn btn-primary btn-sm mt-4"
+                        style="pointer-events: none; display: none;">
+                        <span id="redirectCircle" class="spinner-border spinner-border-sm mx-1" role="status"
+                            aria-hidden="true"></span>
+                        Redirecting to the Dashboard
+                    </button>
                 </div>
             </div>
         </div>

@@ -1,6 +1,8 @@
 var provider = new firebase.auth.GoogleAuthProvider();
 
 googleLogin = () => {
+    document.getElementById('loginSpinner').style.display = 'inline-block';
+    provider.addScope('https://www.googleapis.com/auth/plus.login');
     firebase.auth().signInWithRedirect(provider);
     firebase.auth()
         .getRedirectResult()
@@ -28,11 +30,11 @@ googleLogin = () => {
         });
 }
 
-
 checkState = () => {
     firebase.auth().onAuthStateChanged(function (user) {
-        console.log(user);
         if (user) {
+            document.getElementById('loginButton').style.display = 'none';
+            document.getElementById('redirectButton').style.display = 'inline-block';
             // User is signed in.
             var displayName = user.displayName;
             var email = user.email;
