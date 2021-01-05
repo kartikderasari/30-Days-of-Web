@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID Dashboard</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div class="container-fluid" id="app">
+        <div class="row py-2 border-bottom shadow-sm sticky-top bg-white text-center">
+            <h2 class="my-2 text-muted mx-auto">COVID Dashboard</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 mx-auto text-center border rounded border-light my-4 p-3 border-3">
+                <h4>Global COVID Information</h4>
+                <p>Cases: {{countriesData[0].cases}} | Deaths: {{countriesData[0].deaths}} |
+                    Recovered:
+                    {{countriesData[0].recovered}}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-9 col-md-9 my-2 mx-auto">
+                <table class="table table-hover border border-secondary">
+                    <thead>
+                        <tr>
+                            <th scope="col">Country</th>
+                            <th scope="col">Total Cases</th>
+                            <th scope="col">Today's Cases</th>
+                            <th scope="col">Total Death</th>
+                            <th scope="col">Today's Death</th>
+                            <th scope="col">Recovered</th>
+                        </tr>
+                    </thead>
+                    <tbody v-for="(country, index) in countriesData" :key="index">
+                        <tr>
+                            <th scope="row">{{country.country}}</th>
+                            <td>{{country.cases}}</td>
+                            <td>{{country.todayCases}}</td>
+                            <td>{{country.deaths}}</td>
+                            <td>{{country.todayDeaths}}</td>
+                            <td>{{country.recovered}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                countriesData: []
+            },
+            methods: {
+                showData: function () {
+                    fetch('https://coronavirus-19-api.herokuapp.com/countries')
+                        .then(res => res.json())
+                        .then(data => {
+                            this.countriesData = data;
+                        })
+                }
+            },
+            mounted: function () {
+                this.showData();
+            },
+        });
+    </script>
+</body>
+
+</html>
