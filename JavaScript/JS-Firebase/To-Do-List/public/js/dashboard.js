@@ -50,7 +50,6 @@ logoutUser = () => {
 
 function setUserData(user) {
     document.getElementById('userAction').setAttribute("src", `${user.photoURL}`);
-    console.log(user);
     let ele = `
                 <li>
                     <h5 class="mx-2 my-1">${user.displayName}</h5>
@@ -93,8 +92,7 @@ addTask = () => {
 
 let summary = (text, length, doc) => {
     if (text.length >= length) {
-        let x = text.substring(0, length) + showModal(doc.id, doc.data());
-        return x;
+        return text.substring(0, length) + showModal(doc.id, doc.data());
     }
     else {
         return text;
@@ -112,10 +110,9 @@ let updateSummary = (text, length) => {
 }
 
 showModal = (id, data) => {
-    let ele = `
+    return `
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-link px-0 mx-0 btn-lg" data-bs-toggle="modal" data-bs-target="#${CSS.escape(id)}">...
-    </button>
+    <button type="button" class="btn btn-link p-0 m-0 btn-lg" data-bs-toggle="modal" data-bs-target="#${CSS.escape(id)}">...</button>
     
     <!-- Modal -->
     <div class="modal fade" id="${id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -133,46 +130,40 @@ showModal = (id, data) => {
           </div>
         </div>
       </div>
-    </div>
-        `;
-    return ele;
+    </div>`;
 }
 
 showData = (user) => {
     firebase.firestore().collection('edata').doc(user.uid).collection('todoData').onSnapshot(
         docs => {
-            let i = 0;
             document.getElementById('tasks-container').innerHTML = '';
             docs.forEach(doc => {
                 document.getElementById('tasks-container').innerHTML +=
                     `
-        <div class="col-md-4 my-3" >
-            <div class="card">
-                <div class="card-body">
-                    <p style="font-size: 120%;" class="card-title my-1">${summary(doc.data().name, 20, doc)}
-                    </p>
-                    <p class="card-text">${summary(doc.data().notes, 150, doc)}</p>
-                </div>
-                <div class="text-center my-1">
-                    <button class="btn m-1 btn-outline-primary btn-sm" id="${doc.id}.ongoing"
-                        onclick="updateStatus('${doc.data().name}','${doc.id}', '${doc.data().notes}', 'ongoing')">Ongoing</button>
-                    <button class="btn m-1 btn-outline-success btn-sm" id="${doc.id}.done"
-                        onclick="updateStatus('${doc.data().name}','${doc.id}', '${doc.data().notes}', 'done')">Done</button>
-                    <button class="btn m-1 btn-outline-danger btn-sm" id="${doc.id}.abort"
-                        onclick="updateStatus('${doc.data().name}','${doc.id}', '${doc.data().notes}', 'abort')">Abort</button>
-                </div>
-                <div>
-                    <small id="updateTime" class=" mx-3 my-3 text-muted">Last updated: ${new
+                <div class="col-md-4 my-3" >
+                    <div class="card">
+                        <div class="card-body">
+                            <p style="font-size: 120%;" class="card-title my-1">${summary(doc.data().name, 20, doc)}</p>
+                            <p class="card-text mb-0 pb-0">${summary(doc.data().notes, 150, doc)}</p>
+                        </div>
+                        <div class="text-center my-1">
+                            <button class="btn m-1 btn-outline-primary btn-sm" id="${doc.id}.ongoing"
+                                onclick="updateStatus('${doc.data().name}','${doc.id}', '${doc.data().notes}', 'ongoing')">Ongoing</button>
+                            <button class="btn m-1 btn-outline-success btn-sm" id="${doc.id}.done"
+                                onclick="updateStatus('${doc.data().name}','${doc.id}', '${doc.data().notes}', 'done')">Done</button>
+                            <button class="btn m-1 btn-outline-danger btn-sm" id="${doc.id}.abort"
+                                onclick="updateStatus('${doc.data().name}','${doc.id}', '${doc.data().notes}', 'abort')">Abort</button>
+                        </div>
+                        <div>
+                            <small id="updateTime" class=" mx-3 my-3 text-muted">Last updated: ${new
                         Date(doc.data().timeStamp).toLocaleString()}</small>
-                </div>
-                <div class="text-muted text-center p-1 border-top">
-                    <button type="button" class="btn btn-sm text-danger" onclick="deleteTask('${doc.id}')"
-                        aria-label="Close">Delete</button>
-                </div>
-            </div>
-        </div>
-        `;
-                i++;
+                        </div>
+                        <div class="text-muted text-center p-1 border-top">
+                            <button type="button" class="btn btn-sm text-danger" onclick="deleteTask('${doc.id}')"
+                                aria-label="Close">Delete</button>
+                        </div>
+                    </div>
+                </div>`;
                 document.getElementById(`${doc.id}.${doc.data().status}`).disabled = true;
                 if (doc.data().status == 'ongoing') {
                     document.getElementById(`${doc.id}.${doc.data().status}`).classList.remove('btn-outline-primary');
