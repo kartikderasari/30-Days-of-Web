@@ -46,7 +46,7 @@
                             </span>
                         </div>
                         <table v-if="!showDataLoad" class="table">
-                            <thead>
+                            <thead v-if="userData != 0">
                                 <tr>
                                     <th scope="col">Name</th>
                                     <th scope="col">Contact Number</th>
@@ -72,7 +72,6 @@
                                     </td>
                                 </tr>
                             </tbody>
-
                         </table>
                     </div>
                 </div>
@@ -85,9 +84,7 @@
                 <img class="my-2 w-25" src="https://cdn.pixabay.com/photo/2019/09/12/14/06/notebook-4471683_1280.png"
                     alt="">
                 <h3>Contact Directory</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat fuga suscipit expedita explicabo! Ea
-                    sit, veniam distinctio repellendus inventore molestiae vitae soluta, quam tempore perferendis quo
-                    voluptatem similique velit obcaecati.</p>
+                <p>Here's a simple solution for you to manage your contacts all at place ✔</p>
                 <button class="btn btn-primary" v-on:click="login()">Login with Google</button>
             </div>
         </div>

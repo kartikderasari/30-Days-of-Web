@@ -36,6 +36,9 @@ let app = new Vue({
                 }, err => {
                     console.log(err);
                 })
+            setTimeout(() => {
+                this.showDataLoad = false;
+            }, 200);
         },
         addData() {
             let user = firebase.auth().currentUser;
@@ -43,8 +46,12 @@ let app = new Vue({
                 contactName: this.name,
                 contactNumber: this.number,
             };
-            firebase.firestore().collection("users").doc(user.uid).collection("contacts").add(inputData)
-                .then(() => this.showData())
+            if (inputData.contactName.length > 0 && inputData.contactNumber.length > 0) {
+                firebase.firestore().collection("users").doc(user.uid).collection("contacts").add(inputData)
+                    .then(() => this.showData())
+            } else {
+                alert('Check input data!');
+            }
             this.name = "";
             this.number = null;
         },
@@ -58,10 +65,15 @@ let app = new Vue({
                 contactName: this.updatedName,
                 contactNumber: this.updatedContact,
             }
-            firebase.firestore().collection("users").doc(user.uid).collection("contacts").doc(data.id).update(updateData)
-                .then(() => console.log('Contact updated'))
-                .then(() => this.showData())
-                .catch(e => console.log(e))
+            if (updateData.contactName.length > 0 && updateData.contactNumber.length > 0) {
+                firebase.firestore().collection("users").doc(user.uid).collection("contacts").doc(data.id).update(updateData)
+                    .then(() => console.log('Contact updated'))
+                    .then(() => this.showData())
+                    .catch(e => console.log(e))
+            }
+            else {
+                alert('Check input data!');
+            }
             this.updatedName = '';
             this.updatedContact = null;
             console.log('updateData is running');
@@ -69,7 +81,6 @@ let app = new Vue({
         deleteData(data) {
             if (confirm('Are you sure if you want to delete?')) {
                 let user = firebase.auth().currentUser;
-                console.log(data);
                 firebase.firestore().collection("users").doc(user.uid).collection("contacts").doc(data.id).delete()
                     .then(() => this.showData())
                     .catch(e => console.log(e))
