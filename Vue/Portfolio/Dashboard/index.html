@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="app">
+        <nav class="navbar navbar-expand-lg shadow-sm navbar-light sticky-top bg-white px-2">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <h3 class="m-0 p-0 text-secondary">Dashboard</h3>
+                </a>
+
+            </div>
+        </nav>
+
+        <div class="container-fluid bg-gradient">
+            <div class="container py-3">
+                <div class="container">
+                    <div class="row my-3">
+                        <div class="col-md-6 col-12">
+
+                            <h4 class="text-muted my-3">Enter your details:</h4>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Name</span>
+                                <input type="text" class="form-control" placeholder="Enter Full Name" aria-label="Name"
+                                    aria-describedby="input-field">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Profile Photo</span>
+                                <input type="text" class="form-control" placeholder="Enter Profile Photo URL"
+                                    aria-label="PhotoURL" aria-describedby="input-field">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Short-bio</span>
+                                <textarea type="text" class="form-control"
+                                    placeholder="Enter about yourself in 300 words" aria-label=""
+                                    aria-describedby="input-field" rows="2" cols="1"></textarea>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">About</span>
+                                <textarea type="text" class="form-control" placeholder="Enter about you and your work "
+                                    aria-label="" aria-describedby="input-field" rows="2" cols="1"></textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6 col-12">
+
+                            <h4 class="text-muted my-3">Social Links:</h4>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">E-Mail</span>
+                                <input type="text" class="form-control" placeholder="Enter E-Mail address"
+                                    aria-label="E-Mail" aria-describedby="input-field">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Facebook</span>
+                                <input type="text" class="form-control" placeholder="Enter Facebook URL"
+                                    aria-label="Facebook" aria-describedby="input-field">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">GitHub</span>
+                                <input type="text" class="form-control" placeholder="Enter GitHub URL"
+                                    aria-label="GitHub" aria-describedby="input-field">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Instagram</span>
+                                <input type="text" class="form-control" placeholder="Enter Instagram URL"
+                                    aria-label="Instagram" aria-describedby="input-field">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">LinkedIn</span>
+                                <input type="text" class="form-control" placeholder="Enter LinkedIn URL"
+                                    aria-label="LinkedIn" aria-describedby="input-field">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Twitter</span>
+                                <input type="text" class="form-control" placeholder="Enter Twitter URL"
+                                    aria-label="Twitter" aria-describedby="input-field">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row my-3">
+
+                        <h4 class="text-muted my-3">Experience</h4>
+
+                        <div class="row border bg-light rounded-3 mx-3 py-3">
+
+                            <div class="col-md-6 col-12">
+
+                                <div class="input-group my-2">
+                                    <span class="input-group-text">Designation</span>
+                                    <input type="text" class="form-control" placeholder="Enter your Designation"
+                                        aria-label="Designation" aria-describedby="input-field">
+                                </div>
+
+                                <div class="input-group my-2">
+                                    <span class="input-group-text">Start</span>
+                                    <input type="text" class="form-control" placeholder="Month-Year"
+                                        aria-label="StartMonthYear" aria-describedby="input-field">
+                                    <span class="input-group-text">End</span>
+                                    <input type="text" class="form-control" placeholder="Month-Year/ Present"
+                                        aria-label="EndMonthYear" aria-describedby="input-field">
+                                </div>
+
+                                <div class="input-group my-2">
+                                    <span class="input-group-text">Brief</span>
+                                    <textarea type="text" class="form-control" placeholder="Enter about your work "
+                                        aria-label="" aria-describedby="input-field" rows="1" cols="1"></textarea>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6 col-12">
+
+                                <div class="input-group my-2">
+                                    <span class="input-group-text">Name</span>
+                                    <input type="text" class="form-control" placeholder="Enter Company Name"
+                                        aria-label="Company Name" aria-describedby="input-field">
+                                </div>
+
+                                <div class="input-group my-2">
+                                    <span class="input-group-text">Website</span>
+                                    <input type="text" class="form-control" placeholder="Enter Company Website URL"
+                                        aria-label="Website URL" aria-describedby="input-field">
+                                </div>
+
+                                <div class="input-group my-2">
+                                    <span class="input-group-text">Logo</span>
+                                    <input type="text" class="form-control" placeholder="Enter Company Logo URL"
+                                        aria-label="Logo URL" aria-describedby="input-field">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row my-3">
+
+                        <h4 class="text-muted my-3">Projects</h4>
+
+                        <div class="row border bg-light rounded-3 mx-3 py-3">
+
+                            <div class="col-md-6 col-12">
+
+                                <div class="input-group my-2">
+                                    <span class="input-group-text">Title</span>
+                                    <input type="text" class="form-control" placeholder="Enter Project Title"
+                                        aria-label="Title" aria-describedby="input-field">
+                                </div>
+
+                                <div class="input-group my-2">
+                                    <span class="input-group-text">Project URL</span>
+                                    <input type="text" class="form-control" placeholder="Enter Project URL"
+                                        aria-label="Project URL" aria-describedby="input-field">
+
+                                </div>
+
+                                <div class="input-group my-2">
+                                    <span class="input-group-text">Brief</span>
+                                    <textarea type="text" class="form-control" placeholder="Enter Project brief"
+                                        aria-label="" aria-describedby="input-field" rows="2" cols="1"></textarea>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6 col-12">
+
+                                <div class="input-group my-2">
+                                    <span class="input-group-text">Live URL</span>
+                                    <input type="text" class="form-control" placeholder="Enter Project Live URL"
+                                        aria-label="LIVE URL" aria-describedby="input-field">
+                                </div>
+
+                                <div class="input-group my-2">
+                                    <span class="input-group-text">GitHub URL</span>
+                                    <input type="text" class="form-control" placeholder="Enter GitHub URL"
+                                        aria-label="GitHub URL" aria-describedby="input-field">
+                                </div>
+
+                                <div class="input-group my-2">
+                                    <span class="input-group-text">Tech Stack</span>
+                                    <input type="text" class="form-control" placeholder="Enter Tech Stack"
+                                        aria-label="Tech Stack" aria-describedby="input-field">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary w-25 ">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid bg-light mt-5">
+        <div class="container py-4">
+            <div class="row border-bottom align-items-center">
+                <div class="col-md-4 col-12 text-lg-start text-md-start text-center mb-3 ">
+                    <h3 class="d-inline text-muted ">Dashboard
+                        </h2>
+                </div>
+
+            </div>
+            <div class="row text-center align-items-baseline mt-4">
+                <a class="text-decoration-none" href="https://twitter.com/kartik_derasari">
+                    <h6 class="text-muted">Created by Kartik Derasari
+                    </h6>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
