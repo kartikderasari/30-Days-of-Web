@@ -7,6 +7,7 @@
     <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
@@ -17,287 +18,322 @@
 <body>
 
     <div id="app">
-        <nav class="navbar navbar-expand-lg shadow-sm navbar-light sticky-top bg-white px-2">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <h3 class="m-0 p-0 text-secondary">Dashboard</h3>
-                </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link active" id="pills-about-tab" data-bs-toggle="pill" href="#pills-about"
-                                role="tab" aria-controls="pills-about" aria-selected="true">About</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="pills-experience-tab" data-bs-toggle="pill" href="#pills-experience"
-                                role="tab" aria-controls="pills-profile" aria-selected="false">Experience</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="pills-projects-tab" data-bs-toggle="pill" href="#pills-projects"
-                                role="tab" aria-controls="pills-profile" aria-selected="false">Projects</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" href="#pills-contact"
-                                role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </nav>
-
-        <div class="tab-content" id="pills-tabContent">
-
-            <div class="tab-pane fade show active" id="pills-about" role="tabpanel" aria-labelledby="pills-about-tab">
-                <div class="container-fluid bg-gradient">
-                    <div class="container py-3">
-                        <div class="container">
-                            <div class="row my-3">
-                                <div class="col-md-6 col-12">
-
-                                    <h4 class="text-muted my-3">Enter your details:</h4>
-
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text">Name</span>
-                                        <input type="text" class="form-control" placeholder="Enter Full Name"
-                                            aria-label="Name" aria-describedby="input-field">
-                                    </div>
-
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text">Profile Photo</span>
-                                        <input type="text" class="form-control" placeholder="Enter Profile Photo URL"
-                                            aria-label="PhotoURL" aria-describedby="input-field">
-                                    </div>
-
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text">Short-bio</span>
-                                        <textarea type="text" class="form-control"
-                                            placeholder="Enter about yourself in 300 words" aria-label=""
-                                            aria-describedby="input-field" rows="2" cols="1"></textarea>
-                                    </div>
-
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text">About</span>
-                                        <textarea type="text" class="form-control"
-                                            placeholder="Enter about you and your work " aria-label=""
-                                            aria-describedby="input-field" rows="2" cols="1"></textarea>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-6 col-12">
-
-                                    <h4 class="text-muted my-3">Social Links:</h4>
-
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text">E-Mail</span>
-                                        <input type="text" class="form-control" placeholder="Enter E-Mail address"
-                                            aria-label="E-Mail" aria-describedby="input-field">
-                                    </div>
-
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text">Facebook</span>
-                                        <input type="text" class="form-control" placeholder="Enter Facebook URL"
-                                            aria-label="Facebook" aria-describedby="input-field">
-                                    </div>
-
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text">GitHub</span>
-                                        <input type="text" class="form-control" placeholder="Enter GitHub URL"
-                                            aria-label="GitHub" aria-describedby="input-field">
-                                    </div>
-
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text">Instagram</span>
-                                        <input type="text" class="form-control" placeholder="Enter Instagram URL"
-                                            aria-label="Instagram" aria-describedby="input-field">
-                                    </div>
-
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text">LinkedIn</span>
-                                        <input type="text" class="form-control" placeholder="Enter LinkedIn URL"
-                                            aria-label="LinkedIn" aria-describedby="input-field">
-                                    </div>
-
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text">Twitter</span>
-                                        <input type="text" class="form-control" placeholder="Enter Twitter URL"
-                                            aria-label="Twitter" aria-describedby="input-field">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <button class="btn btn-primary w-25 ">Save</button>
-                        </div>
+        <div v-if="!userLoggedIn">
+            <div class="my-5">
+                <div class="card shadow bg-light p-4 mx-auto w-75">
+                    <div class="card-body text-center">
+                        <img src="https://www.clipartkey.com/mpngs/m/171-1715789_report-automation-dashboards-dashboard-yellow-icon.png"
+                            alt="" style="max-width: 30%;" loading="lazy" class="mb-4">
+                        <h3 class="card-title">Dashboard</h3>
+                        <p class="card-text">Manage your portfolio seamlessly with this Dashboard</p>
+                        <button class="btn btn-primary" v-on:click="googleLogin()">Login with Google</button>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="tab-pane fade" id="pills-experience" role="tabpanel" aria-labelledby="pills-experience-tab">
-                <div class="container-fluid bg-gradient">
-                    <div class="container py-3">
-                        <div class="container">
-                            <div class="row my-3">
-                                <h4 class="text-muted my-3">Experience</h4>
-                                <div class="row border bg-light rounded-3 mx-3 py-3">
+        <div v-if="userLoggedIn">
+
+            <nav class="navbar navbar-expand-lg shadow-sm navbar-light sticky-top bg-white px-2">
+                <div class="container">
+
+                    <a class="navbar-brand" href="#">
+                        <h3 class="m-0 p-0 text-secondary">Dashboard</h3>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end my-2 " id="navbarNavAltMarkup">
+                        <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="pills-about-tab" data-bs-toggle="pill"
+                                    href="#pills-about" role="tab" aria-controls="pills-about"
+                                    aria-selected="true">About</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="pills-experience-tab" data-bs-toggle="pill"
+                                    href="#pills-experience" role="tab" aria-controls="pills-profile"
+                                    aria-selected="false">Experience</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="pills-projects-tab" data-bs-toggle="pill" href="#pills-projects"
+                                    role="tab" aria-controls="pills-profile" aria-selected="false">Projects</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" href="#pills-contact"
+                                    role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+                            </li>
+                            <li class="nav-item mx-1 dropdown">
+                                <img v-bind:src="userImageURL" width="40px" id="userAction"
+                                    class="btn btn-primary nav-link p-0 rounded-circle dropdown-toggle"
+                                    data-bs-toggle="dropdown" role="button" aria-expanded="false"></img>
+                                <ul class="dropdown-menu text-center p-2" id="userContent" style="left: -280%;">
+                                    <span v-html="rawHtml"></span>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="tab-content" id="pills-tabContent">
+
+                <div class="tab-pane fade show active" id="pills-about" role="tabpanel"
+                    aria-labelledby="pills-about-tab">
+                    <div class="container-fluid bg-gradient">
+                        <div class="container py-3">
+                            <div class="container">
+                                <div class="row my-3">
                                     <div class="col-md-6 col-12">
-                                        <div class="input-group my-2">
-                                            <span class="input-group-text">Designation</span>
-                                            <input type="text" class="form-control" placeholder="Enter your Designation"
-                                                aria-label="Designation" aria-describedby="input-field">
-                                        </div>
-                                        <div class="input-group my-2">
-                                            <span class="input-group-text">Start</span>
-                                            <input type="text" class="form-control" placeholder="Month-Year"
-                                                aria-label="StartMonthYear" aria-describedby="input-field">
-                                            <span class="input-group-text">End</span>
-                                            <input type="text" class="form-control" placeholder="Month-Year/ Present"
-                                                aria-label="EndMonthYear" aria-describedby="input-field">
-                                        </div>
-                                        <div class="input-group my-2">
-                                            <span class="input-group-text">Brief</span>
-                                            <textarea type="text" class="form-control"
-                                                placeholder="Enter about your work " aria-label=""
-                                                aria-describedby="input-field" rows="1" cols="1"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="input-group my-2">
+
+                                        <h4 class="text-muted my-3">Enter your details:</h4>
+
+                                        <div class="input-group mb-3">
                                             <span class="input-group-text">Name</span>
-                                            <input type="text" class="form-control" placeholder="Enter Company Name"
-                                                aria-label="Company Name" aria-describedby="input-field">
+                                            <input type="text" class="form-control" placeholder="Enter Full Name"
+                                                aria-label="Name" aria-describedby="input-field">
                                         </div>
-                                        <div class="input-group my-2">
-                                            <span class="input-group-text">Website</span>
+
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Profile Photo</span>
                                             <input type="text" class="form-control"
-                                                placeholder="Enter Company Website URL" aria-label="Website URL"
+                                                placeholder="Enter Profile Photo URL" aria-label="PhotoURL"
                                                 aria-describedby="input-field">
                                         </div>
-                                        <div class="input-group my-2">
-                                            <span class="input-group-text">Logo</span>
-                                            <input type="text" class="form-control" placeholder="Enter Company Logo URL"
-                                                aria-label="Logo URL" aria-describedby="input-field">
+
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Short-bio</span>
+                                            <textarea type="text" class="form-control"
+                                                placeholder="Enter about yourself in 300 words" aria-label=""
+                                                aria-describedby="input-field" rows="2" cols="1"></textarea>
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">About</span>
+                                            <textarea type="text" class="form-control"
+                                                placeholder="Enter about you and your work " aria-label=""
+                                                aria-describedby="input-field" rows="2" cols="1"></textarea>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <button class="btn btn-primary w-25 ">Save</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="tab-pane fade" id="pills-projects" role="tabpanel" aria-labelledby="pills-projects-tab">
-                <div class="container-fluid bg-gradient">
-                    <div class="container py-3">
-                        <div class="container">
-
-                            <div class="row my-3">
-
-                                <h4 class="text-muted my-3">Projects</h4>
-
-                                <div class="row border bg-light rounded-3 mx-3 py-3">
 
                                     <div class="col-md-6 col-12">
 
-                                        <div class="input-group my-2">
-                                            <span class="input-group-text">Title</span>
-                                            <input type="text" class="form-control" placeholder="Enter Project Title"
-                                                aria-label="Title" aria-describedby="input-field">
+                                        <h4 class="text-muted my-3">Social Links:</h4>
+
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">E-Mail</span>
+                                            <input type="text" class="form-control" placeholder="Enter E-Mail address"
+                                                aria-label="E-Mail" aria-describedby="input-field">
                                         </div>
 
-                                        <div class="input-group my-2">
-                                            <span class="input-group-text">Project URL</span>
-                                            <input type="text" class="form-control" placeholder="Enter Project URL"
-                                                aria-label="Project URL" aria-describedby="input-field">
-
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Facebook</span>
+                                            <input type="text" class="form-control" placeholder="Enter Facebook URL"
+                                                aria-label="Facebook" aria-describedby="input-field">
                                         </div>
 
-                                        <div class="input-group my-2">
-                                            <span class="input-group-text">Brief</span>
-                                            <textarea type="text" class="form-control" placeholder="Enter Project brief"
-                                                aria-label="" aria-describedby="input-field" rows="2"
-                                                cols="1"></textarea>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-md-6 col-12">
-
-                                        <div class="input-group my-2">
-                                            <span class="input-group-text">Live URL</span>
-                                            <input type="text" class="form-control" placeholder="Enter Project Live URL"
-                                                aria-label="LIVE URL" aria-describedby="input-field">
-                                        </div>
-
-                                        <div class="input-group my-2">
-                                            <span class="input-group-text">GitHub URL</span>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">GitHub</span>
                                             <input type="text" class="form-control" placeholder="Enter GitHub URL"
-                                                aria-label="GitHub URL" aria-describedby="input-field">
+                                                aria-label="GitHub" aria-describedby="input-field">
                                         </div>
 
-                                        <div class="input-group my-2">
-                                            <span class="input-group-text">Tech Stack</span>
-                                            <input type="text" class="form-control" placeholder="Enter Tech Stack"
-                                                aria-label="Tech Stack" aria-describedby="input-field">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Instagram</span>
+                                            <input type="text" class="form-control" placeholder="Enter Instagram URL"
+                                                aria-label="Instagram" aria-describedby="input-field">
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">LinkedIn</span>
+                                            <input type="text" class="form-control" placeholder="Enter LinkedIn URL"
+                                                aria-label="LinkedIn" aria-describedby="input-field">
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">Twitter</span>
+                                            <input type="text" class="form-control" placeholder="Enter Twitter URL"
+                                                aria-label="Twitter" aria-describedby="input-field">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-                        <div class="text-center">
-                            <button class="btn btn-primary w-25 ">Save</button>
+                            <div class="text-center">
+                                <button class="btn btn-primary w-25 ">Save</button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-            </div>
-
-            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                ghi
-            </div>
-        </div>
-
-
-    </div>
-
-
-    <div class="container-fluid bg-light mt-5">
-        <div class="container py-4">
-            <div class="row border-bottom align-items-center">
-                <div class="col-md-4 col-12 text-lg-start text-md-start text-center mb-3 ">
-                    <h3 class="d-inline text-muted ">Dashboard
-                        </h2>
+                <div class="tab-pane fade" id="pills-experience" role="tabpanel" aria-labelledby="pills-experience-tab">
+                    <div class="container-fluid bg-gradient">
+                        <div class="container py-3">
+                            <div class="container">
+                                <div class="row my-3">
+                                    <h4 class="text-muted my-3">Experience</h4>
+                                    <div class="row border bg-light rounded-3 mx-3 py-3">
+                                        <div class="col-md-6 col-12">
+                                            <div class="input-group my-2">
+                                                <span class="input-group-text">Designation</span>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Enter your Designation" aria-label="Designation"
+                                                    aria-describedby="input-field">
+                                            </div>
+                                            <div class="input-group my-2">
+                                                <span class="input-group-text">Start</span>
+                                                <input type="text" class="form-control" placeholder="Month-Year"
+                                                    aria-label="StartMonthYear" aria-describedby="input-field">
+                                                <span class="input-group-text">End</span>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Month-Year/ Present" aria-label="EndMonthYear"
+                                                    aria-describedby="input-field">
+                                            </div>
+                                            <div class="input-group my-2">
+                                                <span class="input-group-text">Brief</span>
+                                                <textarea type="text" class="form-control"
+                                                    placeholder="Enter about your work " aria-label=""
+                                                    aria-describedby="input-field" rows="1" cols="1"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="input-group my-2">
+                                                <span class="input-group-text">Name</span>
+                                                <input type="text" class="form-control" placeholder="Enter Company Name"
+                                                    aria-label="Company Name" aria-describedby="input-field">
+                                            </div>
+                                            <div class="input-group my-2">
+                                                <span class="input-group-text">Website</span>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Enter Company Website URL" aria-label="Website URL"
+                                                    aria-describedby="input-field">
+                                            </div>
+                                            <div class="input-group my-2">
+                                                <span class="input-group-text">Logo</span>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Enter Company Logo URL" aria-label="Logo URL"
+                                                    aria-describedby="input-field">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-primary w-25 ">Save</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
+                <div class="tab-pane fade" id="pills-projects" role="tabpanel" aria-labelledby="pills-projects-tab">
+                    <div class="container-fluid bg-gradient">
+                        <div class="container py-3">
+                            <div class="container">
+
+                                <div class="row my-3">
+
+                                    <h4 class="text-muted my-3">Projects</h4>
+
+                                    <div class="row border bg-light rounded-3 mx-3 py-3">
+
+                                        <div class="col-md-6 col-12">
+
+                                            <div class="input-group my-2">
+                                                <span class="input-group-text">Title</span>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Enter Project Title" aria-label="Title"
+                                                    aria-describedby="input-field">
+                                            </div>
+
+                                            <div class="input-group my-2">
+                                                <span class="input-group-text">Project URL</span>
+                                                <input type="text" class="form-control" placeholder="Enter Project URL"
+                                                    aria-label="Project URL" aria-describedby="input-field">
+
+                                            </div>
+
+                                            <div class="input-group my-2">
+                                                <span class="input-group-text">Brief</span>
+                                                <textarea type="text" class="form-control"
+                                                    placeholder="Enter Project brief" aria-label=""
+                                                    aria-describedby="input-field" rows="2" cols="1"></textarea>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-6 col-12">
+
+                                            <div class="input-group my-2">
+                                                <span class="input-group-text">Live URL</span>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Enter Project Live URL" aria-label="LIVE URL"
+                                                    aria-describedby="input-field">
+                                            </div>
+
+                                            <div class="input-group my-2">
+                                                <span class="input-group-text">GitHub URL</span>
+                                                <input type="text" class="form-control" placeholder="Enter GitHub URL"
+                                                    aria-label="GitHub URL" aria-describedby="input-field">
+                                            </div>
+
+                                            <div class="input-group my-2">
+                                                <span class="input-group-text">Tech Stack</span>
+                                                <input type="text" class="form-control" placeholder="Enter Tech Stack"
+                                                    aria-label="Tech Stack" aria-describedby="input-field">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-primary w-25 ">Save</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    ghi
+                </div>
             </div>
-            <div class="row text-center align-items-baseline mt-4">
-                <a class="text-decoration-none" href="https://twitter.com/kartik_derasari">
-                    <h6 class="text-muted">Created by Kartik Derasari
-                    </h6>
-                </a>
+            <div class="container-fluid bg-light mt-5">
+                <div class="container py-4">
+                    <div class="row border-bottom align-items-center">
+                        <div class="col-md-4 col-12 text-lg-start text-md-start text-center mb-3 ">
+                            <h3 class="d-inline text-muted ">Dashboard
+                                </h2>
+                        </div>
+
+                    </div>
+                    <div class="row text-center align-items-baseline mt-4">
+                        <a class="text-decoration-none" href="https://twitter.com/kartik_derasari">
+                            <h6 class="text-muted">Created by Kartik Derasari
+                            </h6>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    </div>
 
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-        crossorigin="anonymous"></script>
-    <script src="index.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+
+    <script src="./js/app.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>
