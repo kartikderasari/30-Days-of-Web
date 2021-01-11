@@ -96,41 +96,22 @@
                         <div class="row align-items-center">
                             <h3 class="text-muted">Experiences</h3>
                             <div class="row">
-                                <div class="col-md-4 col-lg-4 col-sm-12 col-12 my-3">
+                                <div class="col-md-4 col-lg-4 col-sm-12 col-12 my-3"
+                                    v-for="(exp, index) in experiences">
                                     <div class="card">
                                         <div class="card-body p-3 align-items-center d-flex">
-                                            <img class="rounded-circle float-start m-2"
-                                                src="https://kartikderasari.me/img/main_photo.png" alt=""
+                                            <img class="rounded-circle float-start m-2" :src="exp.companyLogoURL" alt=""
                                                 style="max-width: 30%;">
                                             <div class="m-2">
-                                                <h5 class="card-title py-0 my-0">Position</h5>
-                                                <p class="card-text text-muted">Company Name
-                                                    <br> <small>March 2019 - Present</small>
-                                                </p>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4 col-lg-4 col-sm-12 col-12 my-3">
-                                    <div class="card">
-                                        <div class="card-body p-3 align-items-center d-flex">
-                                            <img class="rounded-circle float-start m-2"
-                                                src="https://kartikderasari.me/img/main_photo.png" alt=""
-                                                style="max-width: 30%;">
-                                            <div class="m-2">
-                                                <h5 class="card-title py-0 my-0">Position</h5>
-                                                <p class="card-text text-muted">Company Name
-                                                    <br> <small>March 2019 - Present</small>
+                                                <strong class="card-title py-0 my-0 h5"> {{exp.designation}} </strong>
+                                                <p class="card-text text-muted"> {{exp.companyName}}
+                                                    <br> <small>{{ exp.start}} - {{ exp.end}} </small>
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -139,26 +120,21 @@
                     <div class="container py-5">
                         <div class="row">
                             <h3 class="text-muted">My Work</h3>
-                            <div class="col-md-4 col-12 my-3">
+                            <div class="col-md-4 col-12 my-3" v-for="(project, index) in projects" :key="index">
                                 <div class="card bg-light">
-                                    <img src="https://kartikderasari.me/img/img_bg_1.png" class="card-img-top"
-                                        alt="...">
+                                    <img :src="project.projectImageURL" class="card-img-top" alt="..."
+                                        style="max-width: auto;">
                                     <div class="card-body">
-                                        <h5 class="card-title text-muted">Card title</h5>
-                                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Consectetur quisquam temporibus molestiae sapiente a repellat, tempore quis
-                                            eum, accusamus quia, nihil error molestias. Esse nostrum molestiae dolorem
-                                            fugiat a reprehenderit!</p>
+                                        <h5 class="card-title text-muted"> {{ project.title }} </h5>
+                                        <p class="card-text"> {{project.brief}} </p>
                                         <p>
-                                            <span class="badge bg-secondary">Secondary</span>
-                                            <span class="badge bg-secondary">Secondary</span>
-                                            <span class="badge bg-secondary">Secondary</span>
-                                            <span class="badge bg-secondary">Secondary</span>
-
+                                            <span class="badge bg-secondary"> {{ project.techStack }} </span>
                                         </p>
 
-                                        <a href="#" class="btn btn-primary btn-sm">Visit Project</a>
-                                        <a href="#" class="btn btn-outline-success btn-sm">View Code</a>
+                                        <a :href="project.liveURL" class="btn btn-primary btn-sm">Visit
+                                            Project</a>
+                                        <a :href="project.githubURL" class="btn btn-outline-success btn-sm">View
+                                            Code</a>
                                     </div>
                                 </div>
                             </div>
