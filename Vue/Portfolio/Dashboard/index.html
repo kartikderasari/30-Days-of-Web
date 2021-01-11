@@ -64,16 +64,18 @@
                                 <a class="nav-link" id="pills-projects-tab" data-bs-toggle="pill" href="#pills-projects"
                                     role="tab" aria-controls="pills-profile" aria-selected="false">Projects</a>
                             </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" href="#pills-contact"
-                                    role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
-                            </li>
                             <li class="nav-item mx-1 dropdown">
-                                <img v-bind:src="userImageURL" width="40px" id="userAction"
+                                <img v-bind:src="userDetails.photoURL" width="40px" id="userAction"
                                     class="btn btn-primary nav-link p-0 rounded-circle dropdown-toggle"
                                     data-bs-toggle="dropdown" role="button" aria-expanded="false"></img>
                                 <ul class="dropdown-menu text-center p-2" id="userContent" style="left: -280%;">
-                                    <span v-html="rawHtml"></span>
+                                    <li>
+                                        <h5 class="mx-2 my-1">{{userDetails.displayName}}</h5>
+                                        <p class="mx-2 my-1"><small class="d-block">{{userDetails.email}}</small></p>
+                                    </li>
+                                    <li><button class="btn btn-primary btn-sm mt-2 mb-1 mx-auto" id="logoutButton"
+                                            v-on:click="logoutUser()">Logout</button>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -90,82 +92,89 @@
                             <div class="container">
                                 <div class="row my-3">
                                     <div class="col-md-6 col-12">
-
                                         <h4 class="text-muted my-3">Enter your details:</h4>
-
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">Name</span>
                                             <input type="text" class="form-control" placeholder="Enter Full Name"
-                                                aria-label="Name" aria-describedby="input-field">
+                                                aria-label="Name" v-model="userData.name"
+                                                aria-describedby="input-field">
                                         </div>
-
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">Profile Photo</span>
-                                            <input type="text" class="form-control"
+                                            <input type="text" class="form-control" v-model="userData.profilePhotoURL"
                                                 placeholder="Enter Profile Photo URL" aria-label="PhotoURL"
                                                 aria-describedby="input-field">
                                         </div>
-
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">Short-bio</span>
-                                            <textarea type="text" class="form-control"
+                                            <textarea type="text" class="form-control" v-model="userData.shortBio"
                                                 placeholder="Enter about yourself in 300 words" aria-label=""
                                                 aria-describedby="input-field" rows="2" cols="1"></textarea>
                                         </div>
-
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">About</span>
-                                            <textarea type="text" class="form-control"
+                                            <textarea type="text" class="form-control" v-model="userData.about"
                                                 placeholder="Enter about you and your work " aria-label=""
                                                 aria-describedby="input-field" rows="2" cols="1"></textarea>
                                         </div>
+
+
+                                        <!-- <div>
+                                            <input type="text" v-model="temp.name" placeholder="YO1">
+                                            <input type="text" v-model="temp.number" placeholder="YO2">
+                                            <div v-for="(x, index) in tempArr" :key="index">
+                                                <p>{{x.name }} | {{ x.number}}</p>
+                                                <button class="btn btn-danger"
+                                                    v-on:click="deleteData(index)">Delete</button>
+                                            </div>
+                                        </div> -->
+                                        <button class="btn btn-primary" v-on:click="addHTML()">Add HTML</button>
+
+
                                     </div>
-
-
                                     <div class="col-md-6 col-12">
-
                                         <h4 class="text-muted my-3">Social Links:</h4>
-
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">E-Mail</span>
                                             <input type="text" class="form-control" placeholder="Enter E-Mail address"
-                                                aria-label="E-Mail" aria-describedby="input-field">
+                                                aria-label="E-Mail" aria-describedby="input-field"
+                                                v-model="userData.email">
                                         </div>
-
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">Facebook</span>
                                             <input type="text" class="form-control" placeholder="Enter Facebook URL"
-                                                aria-label="Facebook" aria-describedby="input-field">
+                                                aria-label="Facebook" aria-describedby="input-field"
+                                                v-model="userData.socialLinks.Facebook">
                                         </div>
-
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">GitHub</span>
                                             <input type="text" class="form-control" placeholder="Enter GitHub URL"
-                                                aria-label="GitHub" aria-describedby="input-field">
+                                                aria-label="GitHub" aria-describedby="input-field"
+                                                v-model="userData.socialLinks.GitHub">
                                         </div>
-
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">Instagram</span>
                                             <input type="text" class="form-control" placeholder="Enter Instagram URL"
-                                                aria-label="Instagram" aria-describedby="input-field">
+                                                aria-label="Instagram" aria-describedby="input-field"
+                                                v-model="userData.socialLinks.Instagram">
                                         </div>
-
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">LinkedIn</span>
                                             <input type="text" class="form-control" placeholder="Enter LinkedIn URL"
-                                                aria-label="LinkedIn" aria-describedby="input-field">
+                                                aria-label="LinkedIn" aria-describedby="input-field"
+                                                v-model="userData.socialLinks.LinkedIn">
                                         </div>
-
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">Twitter</span>
                                             <input type="text" class="form-control" placeholder="Enter Twitter URL"
-                                                aria-label="Twitter" aria-describedby="input-field">
+                                                aria-label="Twitter" aria-describedby="input-field"
+                                                v-model="userData.socialLinks.Twitter">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-primary w-25 ">Save</button>
+                                <button class="btn btn-primary w-25 " v-on:click="updateUserData()">Save</button>
                             </div>
                         </div>
                     </div>
@@ -175,57 +184,64 @@
                     <div class="container-fluid bg-gradient">
                         <div class="container py-3">
                             <div class="container">
-                                <div class="row my-3">
-                                    <h4 class="text-muted my-3">Experience</h4>
+                                <h4 class="text-muted d-inline-block">Experience</h4>
+                                <button class="btn btn-outline-primary btn-sm float-end" v-on:click="addExp()">Add
+                                    Experience</button>
+                                <div class="row my-3" v-for="(ele, index) in experience" :key="index">
                                     <div class="row border bg-light rounded-3 mx-3 py-3">
                                         <div class="col-md-6 col-12">
                                             <div class="input-group my-2">
                                                 <span class="input-group-text">Designation</span>
                                                 <input type="text" class="form-control"
                                                     placeholder="Enter your Designation" aria-label="Designation"
-                                                    aria-describedby="input-field">
+                                                    aria-describedby="input-field" v-model="tempExp.designation">
                                             </div>
                                             <div class="input-group my-2">
                                                 <span class="input-group-text">Start</span>
                                                 <input type="text" class="form-control" placeholder="Month-Year"
-                                                    aria-label="StartMonthYear" aria-describedby="input-field">
+                                                    aria-label="StartMonthYear" aria-describedby="input-field"
+                                                    v-model="tempExp.start">
                                                 <span class="input-group-text">End</span>
                                                 <input type="text" class="form-control"
                                                     placeholder="Month-Year/ Present" aria-label="EndMonthYear"
-                                                    aria-describedby="input-field">
+                                                    aria-describedby="input-field" v-model="tempExp.end">
                                             </div>
                                             <div class="input-group my-2">
                                                 <span class="input-group-text">Brief</span>
                                                 <textarea type="text" class="form-control"
                                                     placeholder="Enter about your work " aria-label=""
-                                                    aria-describedby="input-field" rows="1" cols="1"></textarea>
+                                                    aria-describedby="input-field" rows="1" cols="1"
+                                                    v-model="tempExp.brief"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="input-group my-2">
                                                 <span class="input-group-text">Name</span>
                                                 <input type="text" class="form-control" placeholder="Enter Company Name"
-                                                    aria-label="Company Name" aria-describedby="input-field">
+                                                    aria-label="Company Name" aria-describedby="input-field"
+                                                    v-model="tempExp.companyName">
                                             </div>
                                             <div class="input-group my-2">
                                                 <span class="input-group-text">Website</span>
                                                 <input type="text" class="form-control"
                                                     placeholder="Enter Company Website URL" aria-label="Website URL"
-                                                    aria-describedby="input-field">
+                                                    aria-describedby="input-field" v-model="tempExp.companyWebsiteURL">
                                             </div>
                                             <div class="input-group my-2">
                                                 <span class="input-group-text">Logo</span>
                                                 <input type="text" class="form-control"
                                                     placeholder="Enter Company Logo URL" aria-label="Logo URL"
-                                                    aria-describedby="input-field">
+                                                    aria-describedby="input-field" v-model="tempExp.companyLogoURL">
                                             </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button class="btn btn-primary w-25"
+                                                v-on:click="updateExpData()">Update</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="text-center">
-                                <button class="btn btn-primary w-25 ">Save</button>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -234,53 +250,40 @@
                     <div class="container-fluid bg-gradient">
                         <div class="container py-3">
                             <div class="container">
-
                                 <div class="row my-3">
-
                                     <h4 class="text-muted my-3">Projects</h4>
-
                                     <div class="row border bg-light rounded-3 mx-3 py-3">
-
                                         <div class="col-md-6 col-12">
-
                                             <div class="input-group my-2">
                                                 <span class="input-group-text">Title</span>
                                                 <input type="text" class="form-control"
                                                     placeholder="Enter Project Title" aria-label="Title"
                                                     aria-describedby="input-field">
                                             </div>
-
                                             <div class="input-group my-2">
                                                 <span class="input-group-text">Project URL</span>
                                                 <input type="text" class="form-control" placeholder="Enter Project URL"
                                                     aria-label="Project URL" aria-describedby="input-field">
-
                                             </div>
-
                                             <div class="input-group my-2">
                                                 <span class="input-group-text">Brief</span>
                                                 <textarea type="text" class="form-control"
                                                     placeholder="Enter Project brief" aria-label=""
                                                     aria-describedby="input-field" rows="2" cols="1"></textarea>
                                             </div>
-
                                         </div>
-
                                         <div class="col-md-6 col-12">
-
                                             <div class="input-group my-2">
                                                 <span class="input-group-text">Live URL</span>
                                                 <input type="text" class="form-control"
                                                     placeholder="Enter Project Live URL" aria-label="LIVE URL"
                                                     aria-describedby="input-field">
                                             </div>
-
                                             <div class="input-group my-2">
                                                 <span class="input-group-text">GitHub URL</span>
                                                 <input type="text" class="form-control" placeholder="Enter GitHub URL"
                                                     aria-label="GitHub URL" aria-describedby="input-field">
                                             </div>
-
                                             <div class="input-group my-2">
                                                 <span class="input-group-text">Tech Stack</span>
                                                 <input type="text" class="form-control" placeholder="Enter Tech Stack"
@@ -289,18 +292,12 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="text-center">
                                 <button class="btn btn-primary w-25 ">Save</button>
                             </div>
                         </div>
                     </div>
-
-                </div>
-
-                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    ghi
                 </div>
             </div>
             <div class="container-fluid bg-light mt-5">
@@ -310,12 +307,10 @@
                             <h3 class="d-inline text-muted ">Dashboard
                                 </h2>
                         </div>
-
                     </div>
                     <div class="row text-center align-items-baseline mt-4">
                         <a class="text-decoration-none" href="https://twitter.com/kartik_derasari">
-                            <h6 class="text-muted">Created by Kartik Derasari
-                            </h6>
+                            <h6 class="text-muted">Created by Kartik Derasari</h6>
                         </a>
                     </div>
                 </div>
