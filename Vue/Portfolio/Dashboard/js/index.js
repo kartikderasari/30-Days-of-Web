@@ -18,17 +18,15 @@ let app = new Vue({
                 Twitter: '',
             },
         },
-        projects: [
-            {
-                title: '',
-                projectURL: '',
-                brief: '',
-                liveURL: '',
-                githubURL: '',
-                techStack: [],
-            },
-        ],
-        experience: [],
+        tempProject: {
+            title: '',
+            projectImageURL: '',
+            brief: '',
+            liveURL: '',
+            githubURL: '',
+            techStack: '',
+        },
+        projects: [],
         tempExp: {
             designation: '',
             start: '',
@@ -38,20 +36,7 @@ let app = new Vue({
             companyWebsiteURL: '',
             companyLogoURL: '',
         },
-        tempArr: [
-            {
-                name: 'h1',
-                number: 1,
-            },
-            {
-                name: 'h2',
-                number: 2,
-            }
-        ],
-        temp: {
-            name: null,
-            number: null,
-        },
+        experiences: [],
     },
     methods: {
         updateUserData: function () {
@@ -92,41 +77,38 @@ let app = new Vue({
                     console.log(error);
                 });
         },
-        addExp: function () {
-            let expToAdd = {
-                designation: this.tempExp.designation,
-                start: this.tempExp.start,
-                end: this.tempExp.end,
-                brief: this.tempExp.brief,
-                companyName: this.tempExp.companyName,
-                companyWebsiteURL: this.tempExp.companyWebsiteURL,
-                companyLogoURL: this.tempExp.companyLogoURL,
-            };
-            this.experience.push(expToAdd);
-            expToAdd = null;
-            console.log(this.experience);
+        addExpData: function () {
+            firebase.firestore().collection('experiences').add(this.tempExp);
+            this.tempExp = {};
+            this.readExpData();
         },
-        updateExpData: function () {
-            console.log(this.experience);
-            let expData = {
-                experience: this.experience,
-            };
-            console.log(expData);
-            firebase.firestore().collection('userInfo').doc('experience').set(expData);
+        readExpData: function () {
+            this.experiences = [];
+            firebase.firestore().collection('experiences').get()
+                .then((doc) => {
+                    doc.forEach(doc => this.experiences.push({ id: doc.id, ...doc.data() }))
+                });
         },
-        // addHTML: function () {
-        //     let dataToAdd = {
-        //         name: this.temp.name,
-        //         number: this.temp.number,
-        //     };
-        //     this.tempArr.push(dataToAdd);
-        //     dataToAdd = null;
-        // },
-        // deleteData: function (index) {
-        //     this.tempArr.splice(index, 1);
-        // },
+        addProjectData: function () {
+            firebase.firestore().collection('projects').add(this.tempProject);
+            this.tempProject = {};
+            this.readProjectData();
+        },
+        readProjectData: function () {
+            firebase.firestore().collection('projects').get()
+                .then((doc) => {
+                    doc.forEach(doc => this.projects.push({ id: doc.id, ...doc.data() }))
+                });
+        },
+        deleteExpData: function (id) {
+            firebase.firestore().collection('experiences').doc(id).delete();
+            this.experiences = [];
+            this.readExpData();
+        },
     },
     mounted: function () {
         this.checkState();
+        this.readExpData();
+        this.readProjectData();
     }
 });
