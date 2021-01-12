@@ -229,11 +229,11 @@
                                         <div class="card-header text-end">
                                             <!-- Button trigger modal -->
                                             <i class="far fa-edit mx-1" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal"></i>
+                                                :data-bs-target="'#a' + index.toString()"></i>
                                             <i class="fas fa-times mx-1" v-on:click="deleteExpData(exp.id)"></i>
 
                                             <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal" tabindex="-1"
+                                            <div class="modal fade" :id="'a' + index.toString()" tabindex="-1"
                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-scrollable">
                                                     <div class="modal-content">
@@ -253,7 +253,7 @@
                                                                             placeholder="Enter your Designation"
                                                                             aria-label="Designation"
                                                                             aria-describedby="input-field"
-                                                                            v-model="index.designation">
+                                                                            v-model="exp.designation">
                                                                     </div>
                                                                     <div class="input-group my-2">
                                                                         <span class="input-group-text">Start</span>
@@ -261,13 +261,13 @@
                                                                             placeholder="Month-Year"
                                                                             aria-label="StartMonthYear"
                                                                             aria-describedby="input-field"
-                                                                            v-model="index.start">
+                                                                            v-model="exp.start">
                                                                         <span class="input-group-text">End</span>
                                                                         <input type="text" class="form-control"
                                                                             placeholder="Month-Year/ Present"
                                                                             aria-label="EndMonthYear"
                                                                             aria-describedby="input-field"
-                                                                            v-model="index.end">
+                                                                            v-model="exp.end">
                                                                     </div>
                                                                     <div class="input-group my-2">
                                                                         <span class="input-group-text">Brief</span>
@@ -275,7 +275,7 @@
                                                                             placeholder="Enter about your work "
                                                                             aria-label="" aria-describedby="input-field"
                                                                             rows="1" cols="1"
-                                                                            v-model="index.brief"></textarea>
+                                                                            v-model="exp.brief"></textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-12 col-12">
@@ -285,7 +285,7 @@
                                                                             placeholder="Enter Company Name"
                                                                             aria-label="Company Name"
                                                                             aria-describedby="input-field"
-                                                                            v-model="index.companyName">
+                                                                            v-model="exp.companyName">
                                                                     </div>
                                                                     <div class="input-group my-2">
                                                                         <span class="input-group-text">Website</span>
@@ -293,7 +293,7 @@
                                                                             placeholder="Enter Company Website URL"
                                                                             aria-label="Website URL"
                                                                             aria-describedby="input-field"
-                                                                            v-model="index.companyWebsiteURL">
+                                                                            v-model="exp.companyWebsiteURL">
                                                                     </div>
                                                                     <div class="input-group my-2">
                                                                         <span class="input-group-text">Logo</span>
@@ -301,13 +301,15 @@
                                                                             placeholder="Enter Company Logo URL"
                                                                             aria-label="Logo URL"
                                                                             aria-describedby="input-field"
-                                                                            v-model="index.companyLogoURL">
+                                                                            v-model="exp.companyLogoURL">
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-primary">Save</button>
+                                                            <button type="button" class="btn btn-primary"
+                                                                data-bs-dismiss="modal" aria-label="Close"
+                                                                v-on:click="updateExpData(exp, exp.id)">Save</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -390,11 +392,21 @@
                                     <div class="col-md-4 col-12 my-3" v-for="(project, index) in projects" :key="index">
                                         <div class="card bg-light">
                                             <div class="card-header text-end">
-                                                <i class="far fa-edit mx-1"></i>
+                                                <i class="far fa-edit mx-1" data-bs-toggle="modal"
+                                                    :data-bs-target="'#p' + index.toString()"></i>
                                                 <i class="fas fa-times mx-1"
                                                     v-on:click="deleteProjectData(project.id)"></i>
+
+
+
+
+
+
+
+
                                             </div>
-                                            <img :src="project.projectImageURL" class="card-img-top" alt="...">
+                                            <img :src="project.projectImageURL" class="card-img-top mx-auto" alt="..."
+                                                style="width: 15rem; height: 15rem;">
                                             <div class="card-body">
                                                 <h5 class="card-title text-muted"> {{ project.title }} </h5>
                                                 <p class="card-text"> {{project.brief}} </p>
@@ -406,6 +418,80 @@
                                                     Project</a>
                                                 <a :href="project.githubURL" class="btn btn-outline-success btn-sm">View
                                                     Code</a>
+                                            </div>
+                                            <!-- Modal -->
+                                            <div class="modal fade" :id="'p' + index.toString()" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-scrollable">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Edit data
+                                                            </h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="col-md-12 col-12">
+                                                                    <div class="input-group my-2">
+                                                                        <span class="input-group-text">Title</span>
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="Enter Project Title"
+                                                                            aria-label="Title"
+                                                                            aria-describedby="input-field"
+                                                                            v-model="project.title">
+                                                                    </div>
+                                                                    <div class="input-group my-2">
+                                                                        <span class="input-group-text">Project
+                                                                            URL</span>
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="Enter Project Image URL"
+                                                                            aria-label="Project URL"
+                                                                            aria-describedby="input-field"
+                                                                            v-model="project.projectImageURL">
+                                                                    </div>
+                                                                    <div class="input-group my-2">
+                                                                        <span class="input-group-text">Brief</span>
+                                                                        <textarea type="text" class="form-control"
+                                                                            placeholder="Enter Project brief"
+                                                                            aria-label="" aria-describedby="input-field"
+                                                                            rows="2" v-model="project.brief"
+                                                                            cols="1"></textarea>
+                                                                    </div>
+                                                                    <div class="input-group my-2">
+                                                                        <span class="input-group-text">Live URL</span>
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="Enter Project Live URL"
+                                                                            aria-label="LIVE URL"
+                                                                            aria-describedby="input-field"
+                                                                            v-model="project.liveURL">
+                                                                    </div>
+                                                                    <div class="input-group my-2">
+                                                                        <span class="input-group-text">GitHub URL</span>
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="Enter GitHub URL"
+                                                                            aria-label="GitHub URL"
+                                                                            aria-describedby="input-field"
+                                                                            v-model="project.githubURL">
+                                                                    </div>
+                                                                    <div class="input-group my-2">
+                                                                        <span class="input-group-text">Tech Stack</span>
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="Enter Tech Stack"
+                                                                            aria-label="Tech Stack"
+                                                                            aria-describedby="input-field"
+                                                                            v-model="project.techStack">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-primary"
+                                                                data-bs-dismiss="modal" aria-label="Close"
+                                                                v-on:click="updateProjectData(project, project.id)">Save</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

@@ -109,6 +109,16 @@ let app = new Vue({
             this.projects = [];
             this.readProjectData();
         },
+        updateExpData: function (exp, id) {
+            firebase.firestore().collection('experiences').doc(id).update(exp)
+                .then(() => this.readExpData())
+                .catch(e => console.log(e))
+        },
+        updateProjectData: function (project, id) {
+            firebase.firestore().collection('projects').doc(id).update(project)
+                .then(() => this.readProjectData())
+                .catch(e => console.log(e))
+        },
     },
     mounted: function () {
         this.checkState();
