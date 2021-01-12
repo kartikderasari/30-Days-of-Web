@@ -55,22 +55,26 @@
       <div class="container py-5 border-bottom ">
         <div class="row align-items-center">
           <div class="col-md-4 col-12 align-items-center text-center my-3">
-            <img class="rounded-circle" :src="userData.profilePhotoURL" alt="" style="max-width: 200px;">
+            <img class="rounded-circle" :src="userData.profilePhotoURL" alt="" style="max-width: 200px;" loading="lazy">
           </div>
-          <div class="col-md-8 col-12 my-3">
-            <div class="card">
+          <div class="col-md-7 col-12 my-3">
+            <div class="card px-3 py-2">
               <div class="card-body">
                 <h5 class="card-title"></h5>
+                <h3 class="text-muted">Hi, I'm {{ userData.name }} !</h3>
                 <p class="card-text"> {{ userData.shortBio }} </p>
-                <div class="d-flex p-1">
-                  <a :href="userData.Facebook" class="fab m-1 h4 fa-facebook text-decoration-none" target="_blank"></a>
-                  <a :href="userData.Instagram" class="fab m-1 h4 text-decoration-none fa-instagram"
+                <p class="d-flex">
+                  <a :href="userData.Facebook" class="fab text-muted mx-2 h4 fa-facebook text-decoration-none"
                     target="_blank"></a>
-                  <a :href="userData.LinkedIn" class="fab m-1 h4 text-decoration-none fa-linkedin-in"
+                  <a :href="userData.Instagram" class="fab text-muted mx-2 h4 text-decoration-none fa-instagram"
                     target="_blank"></a>
-                  <a :href="userData.GitHub" class="fab m-1 h4 text-decoration-none fa-github" target="_blank"></a>
-                  <a :href="userData.Twitter" class="fab m-1 h4 text-decoration-none fa-twitter" target="_blank"></a>
-                </div>
+                  <a :href="userData.LinkedIn" class="fab text-muted mx-2 h4 text-decoration-none fa-linkedin-in"
+                    target="_blank"></a>
+                  <a :href="userData.GitHub" class="fab text-muted mx-2 h4 text-decoration-none fa-github"
+                    target="_blank"></a>
+                  <a :href="userData.Twitter" class="fab text-muted mx-2 h4 text-decoration-none fa-twitter"
+                    target="_blank"></a>
+                </p>
               </div>
             </div>
           </div>
@@ -83,11 +87,11 @@
         <div class="row align-items-center">
           <h3 class="text-muted">About</h3>
           <div class="col-md-12 col-lg-12 col-12">
-            <div class="card">
+            <div class="card px-3 py-2">
               <div class="card-body">
                 <h5 class="card-title"></h5>
                 <p class="card-text">{{ userData.about }}</p>
-                <a :href="'mailto:' + userData.email" class="btn btn-primary">Let's connect</a>
+                <a :href="'mailto:' + userData.email" class="btn btn-primary btn-sm">Let's connect</a>
               </div>
             </div>
           </div>
@@ -104,14 +108,12 @@
               <div class="card" data-bs-toggle="modal" :data-bs-target="'#a' + index.toString()"
                 style="cursor: pointer;">
                 <div class="card-body p-3 align-items-center d-flex">
-                  <img class="rounded-circle float-start m-2" :src="exp.companyLogoURL" alt="" style="max-width: 30%;">
+                  <img class="rounded-circle float-start m-2" :src="exp.companyLogoURL" alt="" style="max-width: 30%;"
+                    loading="lazy">
                   <div class="m-2">
                     <strong class="card-title py-0 my-0 h5"> {{exp.designation}} </strong>
                     <p class="card-text text-muted"> {{exp.companyName}}
                       <br> <small>{{ exp.start}} - {{ exp.end}} </small> <br>
-                      <!-- <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal">See
-                                                More</button> -->
                     </p>
                     <!-- Modal -->
                     <div class="modal fade" :id="'a' + index.toString()" tabindex="-1"
@@ -147,36 +149,20 @@
           <h3 class="text-muted">My Work</h3>
           <div class="col-md-4 col-12 my-3" v-for="(project, index) in projects" :key="index">
             <div class="card bg-light" data-bs-toggle="modal" data-bs-target="#projectModal">
-              <img :src="project.projectImageURL" class="card-img-top mx-auto w-50" alt="...">
+              <img :src="project.projectImageURL" class="card-img-top mx-auto" alt="..." loading="lazy"
+                style="height: 15rem; width: 15rem;">
               <div class="card-body">
                 <h5 class="card-title text-muted"> {{ project.title }} </h5>
                 <p class="card-text"> {{project.brief}} </p>
                 <p>
                   <span class="badge bg-secondary"> {{ project.techStack }} </span>
                 </p>
-
-                <a :href="project.liveURL" class="btn btn-primary btn-sm">Visit
+                <a :href="project.liveURL" target="_blank" class="btn btn-primary btn-sm">Visit
                   Project</a>
-                <a :href="project.githubURL" class="btn btn-outline-success btn-sm">View
+                <a :href="project.githubURL" target="_blank" class="btn btn-outline-success btn-sm">View
                   Code</a>
               </div>
             </div>
-            <!-- Modal -->
-            <!-- <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        hello
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a href="" type="button" class="btn btn-outline-primary btn-sm">Learn More</a>
-                                        <a class="btn btn-secondary btn-sm" data-bs-dismiss="modal"
-                                            aria-label="Close">Close</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
           </div>
         </div>
       </div>
@@ -190,11 +176,25 @@
             </h2>
           </div>
           <div class="col-md-8 col-12 text-lg-end text-md-end text-center mb-3">
-            <a class="text-decoration-none text-muted mx-2" href="">Home</a>
-            <a class="text-decoration-none text-muted mx-2" href="">About</a>
-            <a class="text-decoration-none text-muted mx-2" href="">Resume</a>
-            <a class="text-decoration-none text-muted mx-2" href="">Work</a>
-            <a class="text-decoration-none text-muted mx-2" href="">Contact</a>
+            <a :href="'mailto:' + userData.email" class="fas fa-envelope text-muted mx-2 h4 text-decoration-none"
+              target="_blank"></a>
+            <a :href="userData.Facebook" class="fab text-muted mx-2 h4 fa-facebook text-decoration-none"
+              target="_blank"></a>
+            <a :href="userData.Instagram" class="fab text-muted mx-2 h4 text-decoration-none fa-instagram"
+              target="_blank"></a>
+            <a :href="userData.LinkedIn" class="fab text-muted mx-2 h4 text-decoration-none fa-linkedin-in"
+              target="_blank"></a>
+            <a :href="userData.GitHub" class="fab text-muted mx-2 h4 text-decoration-none fa-github"
+              target="_blank"></a>
+            <a :href="userData.Twitter" class="fab text-muted mx-2 h4 text-decoration-none fa-twitter"
+              target="_blank"></a>
+          </div>
+          <div class="col-md-12 col-12 text-center mb-3 ">
+            <a class="text-decoration-none text-muted mx-2" href="#home">Home</a>
+            <a class="text-decoration-none text-muted mx-2" href="#about">About</a>
+            <a class="text-decoration-none text-muted mx-2" href="#resume">Resume</a>
+            <a class="text-decoration-none text-muted mx-2" href="#work">Work</a>
+            <a class="text-decoration-none text-muted mx-2" href="#contact">Contact</a>
           </div>
         </div>
         <div class="row text-center align-items-baseline mt-4">
