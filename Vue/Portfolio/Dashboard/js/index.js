@@ -10,13 +10,11 @@ let app = new Vue({
             shortBio: '',
             about: '',
             email: '',
-            socialLinks: {
-                Facebook: '',
-                GitHub: '',
-                Instagram: '',
-                LinkedIn: '',
-                Twitter: '',
-            },
+            Facebook: '',
+            GitHub: '',
+            Instagram: '',
+            LinkedIn: '',
+            Twitter: '',
         },
         tempProject: {
             title: '',
@@ -95,6 +93,7 @@ let app = new Vue({
             this.readProjectData();
         },
         readProjectData: function () {
+            this.projects = [];
             firebase.firestore().collection('projects').get()
                 .then((doc) => {
                     doc.forEach(doc => this.projects.push({ id: doc.id, ...doc.data() }))
@@ -104,6 +103,11 @@ let app = new Vue({
             firebase.firestore().collection('experiences').doc(id).delete();
             this.experiences = [];
             this.readExpData();
+        },
+        deleteProjectData: function (id) {
+            firebase.firestore().collection('projects').doc(id).delete();
+            this.projects = [];
+            this.readProjectData();
         },
     },
     mounted: function () {
