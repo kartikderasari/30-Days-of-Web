@@ -7,6 +7,8 @@
     <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="icon" href="https://i.pinimg.com/originals/7c/c7/a6/7cc7a630624d20f7797cb4c8e93c09c1.png"
+        type="image/png" sizes="16x16">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
@@ -36,7 +38,6 @@
         </div>
 
         <div v-if="userLoggedIn">
-
             <nav class="navbar navbar-expand-lg shadow-sm navbar-light sticky-top bg-white px-2">
                 <div class="container">
 
@@ -90,80 +91,163 @@
                 <div class="tab-pane fade show active" id="pills-about" role="tabpanel"
                     aria-labelledby="pills-about-tab">
                     <div class="container-fluid bg-gradient">
-                        <div class="container py-3">
-                            <div class="container">
-                                <div class="row my-3">
-                                    <div class="col-md-6 col-12">
-                                        <h4 class="text-muted my-3">Enter your details:</h4>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text">Name</span>
-                                            <input type="text" class="form-control" placeholder="Enter Full Name"
-                                                aria-label="Name" v-model="userData.name"
-                                                aria-describedby="input-field">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text">Profile Photo</span>
-                                            <input type="text" class="form-control" v-model="userData.profilePhotoURL"
-                                                placeholder="Enter Profile Photo URL" aria-label="PhotoURL"
-                                                aria-describedby="input-field">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text">Short-bio</span>
-                                            <textarea type="text" class="form-control" v-model="userData.shortBio"
-                                                placeholder="Enter about yourself in 300 words" aria-label=""
-                                                aria-describedby="input-field" rows="2" cols="1"></textarea>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text">About</span>
-                                            <textarea type="text" class="form-control" v-model="userData.about"
-                                                placeholder="Enter about you and your work " aria-label=""
-                                                aria-describedby="input-field" rows="2" cols="1"></textarea>
-                                        </div>
 
+                        <div class="container">
+                            <div class="row my-5 p-4 bg-light rounded-3">
+                                <div class="col-md-4 col-sm-12 col-12 text-center align-items-center py-auto">
+
+                                    <div class="text-end">
+                                        <!-- Button trigger modal -->
+                                        <i class="far fa-edit mx-1" data-bs-toggle="modal"
+                                            data-bs-target="#aboutDetails"></i>
                                     </div>
-                                    <div class="col-md-6 col-12">
-                                        <h4 class="text-muted my-3">Social Links:</h4>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text">E-Mail</span>
-                                            <input type="text" class="form-control" placeholder="Enter E-Mail address"
-                                                aria-label="E-Mail" aria-describedby="input-field"
-                                                v-model="userData.email">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text">Facebook</span>
-                                            <input type="text" class="form-control" placeholder="Enter Facebook URL"
-                                                aria-label="Facebook" aria-describedby="input-field"
-                                                v-model="userData.Facebook">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text">GitHub</span>
-                                            <input type="text" class="form-control" placeholder="Enter GitHub URL"
-                                                aria-label="GitHub" aria-describedby="input-field"
-                                                v-model="userData.GitHub">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text">Instagram</span>
-                                            <input type="text" class="form-control" placeholder="Enter Instagram URL"
-                                                aria-label="Instagram" aria-describedby="input-field"
-                                                v-model="userData.Instagram">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text">LinkedIn</span>
-                                            <input type="text" class="form-control" placeholder="Enter LinkedIn URL"
-                                                aria-label="LinkedIn" aria-describedby="input-field"
-                                                v-model="userData.LinkedIn">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text">Twitter</span>
-                                            <input type="text" class="form-control" placeholder="Enter Twitter URL"
-                                                aria-label="Twitter" aria-describedby="input-field"
-                                                v-model="userData.Twitter">
+
+                                    <img class=" my-3 rounded-circle" :src="userData.profilePhotoURL" alt="..."
+                                        width="150px">
+                                    <h3 class="m-2 text-muted"> {{userData.name}} </h3>
+
+                                    <p class="d-flex justify-content-center">
+                                        <a :href="userData.Facebook"
+                                            class="fab text-muted mx-2 h4 fa-facebook text-decoration-none"
+                                            target="_blank"></a>
+                                        <a :href="userData.Instagram"
+                                            class="fab text-muted mx-2 h4 text-decoration-none fa-instagram"
+                                            target="_blank"></a>
+                                        <a :href="userData.LinkedIn"
+                                            class="fab text-muted mx-2 h4 text-decoration-none fa-linkedin-in"
+                                            target="_blank"></a>
+                                        <a :href="userData.GitHub"
+                                            class="fab text-muted mx-2 h4 text-decoration-none fa-github"
+                                            target="_blank"></a>
+                                        <a :href="userData.Twitter"
+                                            class="fab text-muted mx-2 h4 text-decoration-none fa-twitter"
+                                            target="_blank"></a>
+                                    </p>
+
+                                    <div class="modal fade" id="aboutDetails" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-scrollable">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit data
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">Name</span>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Enter Full Name" aria-label="Name"
+                                                            v-model="userData.name" aria-describedby="input-field">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">Profile Photo</span>
+                                                        <input type="text" class="form-control"
+                                                            v-model="userData.profilePhotoURL"
+                                                            placeholder="Enter Profile Photo URL" aria-label="PhotoURL"
+                                                            aria-describedby="input-field">
+                                                    </div>
+
+                                                    <h4 class="text-muted my-3 text-start">Social Links:</h4>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">E-Mail</span>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Enter E-Mail address" aria-label="E-Mail"
+                                                            aria-describedby="input-field" v-model="userData.email">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">Facebook</span>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Enter Facebook URL" aria-label="Facebook"
+                                                            aria-describedby="input-field" v-model="userData.Facebook">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">GitHub</span>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Enter GitHub URL" aria-label="GitHub"
+                                                            aria-describedby="input-field" v-model="userData.GitHub">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">Instagram</span>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Enter Instagram URL" aria-label="Instagram"
+                                                            aria-describedby="input-field" v-model="userData.Instagram">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">LinkedIn</span>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Enter LinkedIn URL" aria-label="LinkedIn"
+                                                            aria-describedby="input-field" v-model="userData.LinkedIn">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">Twitter</span>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Enter Twitter URL" aria-label="Twitter"
+                                                            aria-describedby="input-field" v-model="userData.Twitter">
+                                                    </div>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-primary" data-bs-dismiss="modal"
+                                                        v-on:click="updateUserData()">Save</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+
                                 </div>
-                            </div>
-                            <div class="text-center">
-                                <button class="btn btn-primary w-25 " v-on:click="updateUserData()">Save</button>
+                                <div class="col-md-8 col-sm-12 col-12">
+
+                                    <div class="text-end">
+                                        <!-- Button trigger modal -->
+                                        <i class="far fa-edit mx-1" data-bs-toggle="modal"
+                                            data-bs-target="#bioDetails"></i>
+                                    </div>
+
+                                    <div class="modal fade" id="bioDetails" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit data
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">Short-bio</span>
+                                                        <textarea type="text" class="form-control"
+                                                            v-model="userData.shortBio"
+                                                            placeholder="Enter about yourself in 300 words"
+                                                            aria-label="" aria-describedby="input-field" rows="3"
+                                                            cols="10"></textarea>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">About</span>
+                                                        <textarea type="text" class="form-control"
+                                                            v-model="userData.about"
+                                                            placeholder="Enter about you and your work " aria-label=""
+                                                            aria-describedby="input-field" rows="9"
+                                                            cols="10"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-primary" data-bs-dismiss="modal"
+                                                        v-on:click="updateUserData()">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h4 class="text-muted">Short-Bio</h4>
+                                    <p>
+                                        {{userData.shortBio}}</p>
+                                    <h4 class="text-muted">About</h4>
+                                    <p>
+                                        {{userData.about}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -194,7 +278,7 @@
                                     <div class="input-group my-2">
                                         <span class="input-group-text">Brief</span>
                                         <textarea type="text" class="form-control" placeholder="Enter about your work "
-                                            aria-label="" aria-describedby="input-field" rows="1" cols="1"
+                                            aria-label="" aria-describedby="input-field" rows="2" cols="1"
                                             v-model="tempExp.brief"></textarea>
                                     </div>
                                 </div>
@@ -235,7 +319,7 @@
                                             <!-- Modal -->
                                             <div class="modal fade" :id="'a' + index.toString()" tabindex="-1"
                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-scrollable">
+                                                <div class="modal-dialog modal-dialog-scrollable modal-lg">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalLabel">Edit data
@@ -274,7 +358,7 @@
                                                                         <textarea type="text" class="form-control"
                                                                             placeholder="Enter about your work "
                                                                             aria-label="" aria-describedby="input-field"
-                                                                            rows="1" cols="1"
+                                                                            rows="3" cols="1"
                                                                             v-model="exp.brief"></textarea>
                                                                     </div>
                                                                 </div>
@@ -328,7 +412,6 @@
                                             </div>
                                             <p>{{ exp.brief }}</p>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -350,7 +433,7 @@
                                                 v-model="tempProject.title">
                                         </div>
                                         <div class="input-group my-2">
-                                            <span class="input-group-text">Project URL</span>
+                                            <span class="input-group-text">Image URL</span>
                                             <input type="text" class="form-control"
                                                 placeholder="Enter Project Image URL" aria-label="Project URL"
                                                 aria-describedby="input-field" v-model="tempProject.projectImageURL">
@@ -396,17 +479,11 @@
                                                     :data-bs-target="'#p' + index.toString()"></i>
                                                 <i class="fas fa-times mx-1"
                                                     v-on:click="deleteProjectData(project.id)"></i>
-
-
-
-
-
-
-
-
                                             </div>
-                                            <img :src="project.projectImageURL" class="card-img-top mx-auto" alt="..."
-                                                style="width: 15rem; height: 15rem;">
+                                            <div class="text-center">
+                                                <img :src="project.projectImageURL" class="card-img-top mx-auto my-4"
+                                                    alt="..." style="width: 30%;">
+                                            </div>
                                             <div class="card-body">
                                                 <h5 class="card-title text-muted"> {{ project.title }} </h5>
                                                 <p class="card-text"> {{project.brief}} </p>
@@ -422,7 +499,7 @@
                                             <!-- Modal -->
                                             <div class="modal fade" :id="'p' + index.toString()" tabindex="-1"
                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-scrollable">
+                                                <div class="modal-dialog modal-dialog-scrollable modal-lg">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalLabel">Edit data
@@ -442,11 +519,11 @@
                                                                             v-model="project.title">
                                                                     </div>
                                                                     <div class="input-group my-2">
-                                                                        <span class="input-group-text">Project
+                                                                        <span class="input-group-text">Image
                                                                             URL</span>
                                                                         <input type="text" class="form-control"
-                                                                            placeholder="Enter Project Image URL"
-                                                                            aria-label="Project URL"
+                                                                            placeholder="Enter Image URL"
+                                                                            aria-label="Image URL"
                                                                             aria-describedby="input-field"
                                                                             v-model="project.projectImageURL">
                                                                     </div>
@@ -455,7 +532,7 @@
                                                                         <textarea type="text" class="form-control"
                                                                             placeholder="Enter Project brief"
                                                                             aria-label="" aria-describedby="input-field"
-                                                                            rows="2" v-model="project.brief"
+                                                                            rows="3" v-model="project.brief"
                                                                             cols="1"></textarea>
                                                                     </div>
                                                                     <div class="input-group my-2">
