@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://i.pinimg.com/originals/7c/c7/a6/7cc7a630624d20f7797cb4c8e93c09c1.png" type="image/png"
+    sizes="16x16">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <!-- JavaScript Bundle with Popper -->
@@ -51,8 +53,8 @@
       </div>
     </nav>
 
-    <div class="container-fluid bg-light bg-gradient" id="home">
-      <div class="container py-5 border-bottom ">
+    <div class="container-fluid bg-light" id="home">
+      <div class="container py-5">
         <div class="row align-items-center">
           <div class="col-md-4 col-12 align-items-center text-center my-3">
             <img class="rounded-circle" :src="userData.profilePhotoURL" alt="" style="max-width: 200px;" loading="lazy">
@@ -83,15 +85,21 @@
     </div>
 
     <div class="container-fluid" id="about">
-      <div class="container py-5  border-bottom">
+      <div class="container py-5">
         <div class="row align-items-center">
-          <h3 class="text-muted">About</h3>
           <div class="col-md-12 col-lg-12 col-12">
-            <div class="card px-3 py-2">
+            <h3 class="text-muted">About</h3>
+            <div class="card bg-light p-4">
               <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text">{{ userData.about }}</p>
-                <a :href="'mailto:' + userData.email" class="btn btn-primary btn-sm">Let's connect</a>
+                <div class="row">
+                  <div class="col-12 col-md-8 col-lg-8 col-sm-12">
+                    <p class="card-text">{{ userData.about }}</p>
+                    <a :href="'mailto:' + userData.email" class="btn btn-primary btn-sm">Let's connect</a>
+                  </div>
+                  <div class="col-12 col-md-4 col-lg-4 col-sm-12 bg-light">
+
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -147,10 +155,12 @@
       <div class="container py-5">
         <div class="row">
           <h3 class="text-muted">My Work</h3>
-          <div class="col-md-4 col-12 my-3" v-for="(project, index) in projects" :key="index">
+          <div class="col-md-4 col-12 my-3 h-100" v-for="(project, index) in projects" :key="index">
             <div class="card bg-light" data-bs-toggle="modal" data-bs-target="#projectModal">
-              <img :src="project.projectImageURL" class="card-img-top mx-auto" alt="..." loading="lazy"
-                style="height: 15rem; width: 15rem;">
+              <div class="text-center">
+                <img :src="project.projectImageURL" class="card-img-top mx-auto my-4" alt="..." loading="lazy"
+                  style="width: 40%;">
+              </div>
               <div class="card-body">
                 <h5 class="card-title text-muted"> {{ project.title }} </h5>
                 <p class="card-text"> {{project.brief}} </p>
